@@ -1,6 +1,8 @@
 Étude Op. 10, No. 10
 ===================
 
+[![CircleCI](https://circleci.com/gh/k2works/etude_op10_no10.svg?style=svg)](https://circleci.com/gh/k2works/etude_op10_no10)
+
 # 目的 #
 Railsアプリケーションの構築・配置
 
@@ -57,6 +59,22 @@ rbenv local 2.4.0
 heroku create etude-op10-no10
 git heroku master
 ```
+
+### Jenkinsセットアップ
+```
+sudo su jenkins
+cd ~/
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+source ~/.bash_profile
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+rbenv install 2.4.0
+rbenv local 2.4.0
+/usr/local/heroku/bin/heroku
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+`http://192.168.30.1:8080`に接続してJenkinsをセットアップする
+
 **[⬆ back to top](#構成)**
 
 ## 開発
