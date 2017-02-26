@@ -31,6 +31,11 @@ gem install rails -v 5.1.0.beta1
 ```bash
 rails new .
 ```
+
+```bash
+rails s -b 0.0.0.0
+```
+`http://192.168.30.1:3000`に接続して動作を確認する
 **[⬆ back to top](#構成)**
 
 ## 配置
