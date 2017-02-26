@@ -26,6 +26,11 @@ vagrant ssh
 cd /vagrant
 gem install rails -v 5.1.0.beta1
 ```
+
+### Railsアプリケーションのセットアップ
+```bash
+rails new .
+```
 **[⬆ back to top](#構成)**
 
 ## 配置
