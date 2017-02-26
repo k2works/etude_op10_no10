@@ -37,6 +37,13 @@ rails s -b 0.0.0.0
 ```
 `http://192.168.30.1:3000`に接続して動作を確認する
 
+```bash
+bundle install
+rails generate rspec:install
+bundle binstubs rspec-core
+./bin/rspec
+```
+
 ### VSCodeでデバッグを実行する
 ```bash
 bundle exec rdebug-ide --host 0.0.0.0 --port 1234 --dispatcher-port 26162 -- bin/rails s -b 0.0.0.0

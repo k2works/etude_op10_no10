@@ -42,6 +42,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'ruby-debug-ide', '~>0.6.1.beta4'
   gem 'debase', '~>0.2.2.beta9'    
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do
