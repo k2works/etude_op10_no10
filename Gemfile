@@ -40,9 +40,11 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.7.0'
   gem 'selenium-webdriver'
+  gem 'rspec-rails', '~> 3.5'
   gem 'ruby-debug-ide', '~>0.6.1.beta4'
   gem 'debase', '~>0.2.2.beta9'    
-  gem 'rspec-rails', '~> 3.5'
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :development do
