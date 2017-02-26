@@ -36,6 +36,11 @@ rails new .
 rails s -b 0.0.0.0
 ```
 `http://192.168.30.1:3000`に接続して動作を確認する
+
+### VSCodeでデバッグを実行する
+```bash
+bundle exec rdebug-ide --host 0.0.0.0 --port 1234 --dispatcher-port 26162 -- bin/rails s -b 0.0.0.0
+```
 **[⬆ back to top](#構成)**
 
 ## 配置
@@ -45,3 +50,4 @@ rails s -b 0.0.0.0
 **[⬆ back to top](#構成)**
 
 # 参照 #
++ [Visual Studio Codeを使ってRailsをデバッグ実行してみよう](http://qiita.com/chimame/items/56e48ab3145312ff1786)
