@@ -4,15 +4,16 @@ node('master') {
   git url: 'https://github.com/k2works/etude_op10_no10.git'
 
   stage 'Prepare'
-  sh "bundle install --path vendor/bundle"
+  sh "~/.rbenv/versions/2.4.0/bin/gem install bundler"
+  sh "~/.rbenv/versions/2.4.0/bin/bundle install --path vendor/bundle"
 
   stage 'Prepare test'
-  sh "bundle install"
-  sh "bundle exec rake db:migrate"
-  sh "bundle exec rake db:test:prepare"
+  sh "~/.rbenv/versions/2.4.0/bin/bundle install"
+  sh "~/.rbenv/versions/2.4.0/bin/bundle exec rake db:migrate"
+  sh "~/.rbenv/versions/2.4.0/bin/bundle exec rake db:test:prepare"
 
   stage "Unit test"
-  sh "bundle exec rake spec"
+  sh "~/.rbenv/versions/2.4.0/bin/bundle exec rake spec"
 
   stage "Integration test"
 
