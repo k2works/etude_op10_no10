@@ -57,7 +57,7 @@ bundle exec rdebug-ide --host 0.0.0.0 --port 1234 --dispatcher-port 26162 -- bin
 ```bash
 rbenv local 2.4.0
 heroku create etude-op10-no10
-git heroku master
+git push heroku master
 ```
 
 ### Jenkinsセットアップ
