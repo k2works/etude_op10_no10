@@ -19,6 +19,13 @@ Railsアプリケーションの構築・配置
 1. [開発](#開発)
 
 ## 構築
+### Railsのインストール
+```bash
+vagrant up
+vagrant ssh
+cd /vagrant
+gem install rails -v 5.1.0.beta1
+```
 **[⬆ back to top](#構成)**
 
 ## 配置
