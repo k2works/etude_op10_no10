@@ -21,13 +21,10 @@ module Bowling
 
     private
     def adjust_current_frame(pins)
-      if @first_throw_in_frame
-        if !adjust_frame_for_strike(pins)
-          @first_throw_in_frame = false
-        end
-      else
-        @first_throw_in_frame = true
+      if (@first_throw_in_frame && pins == 10 || !@first_throw_in_frame)
         advance_frame
+      else
+        @first_throw_in_frame = false
       end
     end
 
