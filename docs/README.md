@@ -39,12 +39,20 @@ rails s -b 0.0.0.0
 ```
 `http://192.168.30.1:3000`に接続して動作を確認する
 
+### テスト環境セットアップ
 ```bash
 bundle install
 rails generate rspec:install
 bundle binstubs rspec-core
 ./bin/rspec
 ```
+
+### ドキュメント環境セットアップ
+```bash
+bundle exec yard
+bundle exec yard server
+```
+
 
 ### VSCodeでデバッグを実行する
 ```bash
