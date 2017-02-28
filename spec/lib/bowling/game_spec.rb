@@ -2,10 +2,11 @@ require 'rails_helper'
 include Bowling
 
 describe Bowling::Game do
+  let(:g) { Game.new }
+
   describe '.score' do
     context 'when one throw' do
       it 'is scored' do
-        g = Game.new
         g.add(5)
         expect(g.score).to eq(5)
       end
@@ -13,7 +14,6 @@ describe Bowling::Game do
 
     context 'when two throws' do
       it 'is scored' do
-        g = Game.new
         g.add(5)
         g.add(4)
         expect(g.score).to eq(9)
@@ -24,7 +24,6 @@ describe Bowling::Game do
   describe '.score_for_frame' do
     context 'when four throws' do
       it 'is scored' do
-        g = Game.new
         g.add(5)
         g.add(4)
         g.add(7)
@@ -36,7 +35,6 @@ describe Bowling::Game do
 
     context 'when spare' do
       it 'is scored' do
-        g = Game.new
       end
     end
   end
