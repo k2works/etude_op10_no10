@@ -2,7 +2,7 @@ module Bowling
   class Game
     def initialize
       @first_throw_in_frame = true
-      @its_current_frame = 1
+      @its_current_frame = 0
       @its_scorer = Scorer.new
     end
 
