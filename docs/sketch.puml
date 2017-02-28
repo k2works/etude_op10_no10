@@ -1,0 +1,9 @@
+@startuml
+class Game
+class Frame
+class Throw
+
+Game --> "10" Frame
+Frame --> "1..3" Throw
+
+@enduml

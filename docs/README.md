@@ -94,6 +94,12 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 **[⬆ back to top](#構成)**
 
 ## 開発
+### 仕様
+![](./images/score.png)
+
+### 設計
+![](./images/sketch.png)
+
 **[⬆ back to top](#構成)**
 
 # 参照 #
