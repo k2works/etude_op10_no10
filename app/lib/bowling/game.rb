@@ -44,7 +44,7 @@ module Bowling
 
     private
     def strike
-      @first_throw == 10
+      @its_throws[@ball] == 10
     end
 
     def next_two_balls
@@ -53,13 +53,10 @@ module Bowling
 
     def handle_second_throw
       score = 0
-      second_throw = @its_throws[@ball+1]
-      frame_score = @first_throw + second_throw
-
       # スペアの得点計算には次のフレームの第１投が必要
       if spare
         @ball += 2
-        score += frame_score + next_ball
+        score += 10 + next_ball
       else
         score += two_balls_in_frame
         @ball += 2
