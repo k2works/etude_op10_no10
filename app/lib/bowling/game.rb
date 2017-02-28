@@ -16,13 +16,7 @@ module Bowling
       @its_throws[@its_current_throw] = pins
       @its_current_throw += 1
       @its_score += pins
-
-      if @first_throw
-        @its_current_frame += 1
-        @first_throw = false
-      else
-        @first_throw = true
-      end
+      adjust_current_frame
     end
 
     def score_for_frame(the_frame)
@@ -50,6 +44,16 @@ module Bowling
 
     def get_current_frame
       @its_current_frame
+    end
+
+    private
+    def adjust_current_frame
+      if @first_throw
+        @its_current_frame += 1
+        @first_throw = false
+      else
+        @first_throw = true
+      end
     end
   end
 end
