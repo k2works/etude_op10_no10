@@ -5,7 +5,7 @@ module Bowling
       @its_current_throw = 0
       @its_throws = Array.new(21,0)
       @first_throw = true
-      @its_current_frame = 0
+      @its_current_frame = 1
     end
 
     def score
@@ -49,10 +49,10 @@ module Bowling
     private
     def adjust_current_frame
       if @first_throw
-        @its_current_frame += 1
         @first_throw = false
       else
         @first_throw = true
+        @its_current_frame += 1
       end
     end
   end
