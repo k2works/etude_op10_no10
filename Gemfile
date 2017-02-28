@@ -66,3 +66,5 @@ gem 'yard', '~> 0.9.8', group: :doc
 gem 'redcarpet', '~> 3.3', '>= 3.3.4'
 gem 'migration_comments'
 gem 'annotate'
+gem 'rack-dev-mark'
+gem 'dotenv-rails'

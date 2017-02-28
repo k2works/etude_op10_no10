@@ -26,3 +26,4 @@
 etude_op10_no10.iml
 .yardoc
 /doc/*
+.env
