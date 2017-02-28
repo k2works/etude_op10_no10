@@ -57,5 +57,13 @@ describe Bowling::Game do
       end
     end
 
+    context 'when two throws' do
+      it 'is scored' do
+        g.add(5)
+        g.add(4)
+        expect(g.get_current_frame).to eq(1)
+      end
+    end
+
   end
 end
