@@ -53,6 +53,9 @@ bundle exec yard
 bundle exec yard server
 ```
 
+```bash
+bundle exec rails g annotate:install
+```
 
 ### VSCodeでデバッグを実行する
 ```bash

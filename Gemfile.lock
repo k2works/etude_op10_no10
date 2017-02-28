@@ -50,6 +50,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
+    annotate (2.6.5)
+      activerecord (>= 2.3.0)
+      rake (>= 0.8.7)
     arel (8.0.0)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -101,6 +104,8 @@ GEM
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
     method_source (0.8.2)
+    migration_comments (0.4.1)
+      activerecord (>= 4.2.0)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
@@ -214,6 +219,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
   better_errors
   binding_of_caller
   byebug
@@ -222,6 +228,7 @@ DEPENDENCIES
   debase (~> 0.2.2.beta9)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
+  migration_comments
   pg
   puma (~> 3.7)
   rails (~> 5.1.0.beta1)
