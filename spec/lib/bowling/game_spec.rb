@@ -22,11 +22,20 @@ describe Bowling::Game do
         expect(g.score).to eq(18)
       end
     end
+
+    context 'when strike' do
+      it 'is scored' do
+        g.add(10)
+        g.add(3)
+        g.add(6)
+        expect(g.score).to eq(28)
+      end
+    end
   end
 
   describe '.score_for_frame' do
     context 'when four throws' do
-      it 'is scored' do
+      it 'is scored by frame' do
         g.add(5)
         g.add(4)
         g.add(7)
@@ -37,13 +46,22 @@ describe Bowling::Game do
     end
 
     context 'when spare' do
-      it 'is scored' do
+      it 'is scored by frame' do
         g.add(3)
         g.add(7)
         g.add(3)
         g.add(2)
         expect(g.score_for_frame(1)).to eq(13)
         expect(g.score_for_frame(2)).to eq(18)
+      end
+    end
+
+    context 'when strike' do
+      it 'is scored by frame' do
+        g.add(10)
+        g.add(3)
+        g.add(6)
+        expect(g.score_for_frame(1)).to eq(19)
       end
     end
   end
@@ -70,6 +88,15 @@ describe Bowling::Game do
         g.add(7)
         g.add(3)
         g.add(2)
+        expect(g.get_current_frame).to eq(3)
+      end
+    end
+
+    context 'when strike' do
+      it 'current frame is' do
+        g.add(10)
+        g.add(3)
+        g.add(6)
         expect(g.get_current_frame).to eq(3)
       end
     end
