@@ -16,7 +16,7 @@ module Bowling
       @its_throws[@its_current_throw] = pins
       @its_current_throw += 1
       @its_score += pins
-      adjust_current_frame
+      adjust_current_frame(pins)
     end
 
     def score_for_frame(the_frame)
@@ -26,15 +26,20 @@ module Bowling
       while current_frame < the_frame
         first_throw = @its_throws[ball]
         ball += 1
-        second_throw = @its_throws[ball]
-        ball += 1
-        frame_score = first_throw + second_throw
 
-        # スペアの得点計算には次のフレームの第１投が必要
-        if frame_score == 10
-          score += frame_score + @its_throws[ball]
+        if first_throw == 10
+          score += 10 + @its_throws[ball] + @its_throws[ball+1]
         else
-          score += frame_score
+          second_throw = @its_throws[ball]
+          ball += 1
+          frame_score = first_throw + second_throw
+
+          # スペアの得点計算には次のフレームの第１投が必要
+          if frame_score == 10
+            score += frame_score + @its_throws[ball]
+          else
+            score += frame_score
+          end
         end
 
         current_frame += 1
@@ -47,9 +52,14 @@ module Bowling
     end
 
     private
-    def adjust_current_frame
+    def adjust_current_frame(pins)
       if @first_throw
-        @first_throw = false
+        if pins == 10 # ストライク
+          @first_throw = true
+          @its_current_frame += 1
+        else
+          @first_throw = false
+        end
       else
         @first_throw = true
         @its_current_frame += 1
