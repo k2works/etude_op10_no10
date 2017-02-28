@@ -132,49 +132,4 @@ describe Bowling::Game do
       end
     end
   end
-
-  describe '.get_current_frame' do
-    context 'when two throws' do
-      it 'current frame is' do
-        g.add(5)
-        g.add(4)
-        expect(g.get_current_frame).to eq(2)
-      end
-    end
-
-    context 'when spare' do
-      it 'current frame is' do
-        g.add(3)
-        g.add(7)
-        g.add(3)
-        expect(g.get_current_frame).to eq(2)
-      end
-
-      it 'current frame is' do
-        g.add(3)
-        g.add(7)
-        g.add(3)
-        g.add(2)
-        expect(g.get_current_frame).to eq(3)
-      end
-    end
-
-    context 'when strike' do
-      it 'current frame is' do
-        g.add(10)
-        g.add(3)
-        g.add(6)
-        expect(g.get_current_frame).to eq(3)
-      end
-    end
-
-    context 'when perfect game' do
-      it 'current frame is' do
-        12.times do
-          g.add(10)
-        end
-        expect(g.get_current_frame).to eq(11)
-      end
-    end
-  end
 end
