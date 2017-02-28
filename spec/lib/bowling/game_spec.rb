@@ -58,7 +58,7 @@ describe Bowling::Game do
     end
 
     context 'when two throws' do
-      it 'is scored' do
+      it 'current frame is' do
         g.add(5)
         g.add(4)
         expect(g.get_current_frame).to eq(2)
@@ -66,7 +66,14 @@ describe Bowling::Game do
     end
 
     context 'when spare' do
-      it 'is scored' do
+      it 'current frame is' do
+        g.add(3)
+        g.add(7)
+        g.add(3)
+        expect(g.get_current_frame).to eq(2)
+      end
+
+      it 'current frame is' do
         g.add(3)
         g.add(7)
         g.add(3)
