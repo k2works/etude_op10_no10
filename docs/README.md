@@ -58,8 +58,15 @@ bundle exec rails g annotate:install
 ```
 
 ### その他環境セットアップ
+
+Rack_dev_markのセットアップ
 ```bash
 bundle exec rails g rack:dev-mark:install
+```
+
+Webpackerのセットアップ
+```bash
+bin/rails webpacker:install
 ```
 
 ### VSCodeでデバッグを実行する
