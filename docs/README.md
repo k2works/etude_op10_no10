@@ -80,6 +80,10 @@ webpack-dev-serverを有効にする
 ```bash
 chmod 777 bin/server
 ```
+ChromeDriverのセットアップ(Mac)
+```bash
+brew install chromedriver
+```
 
 ### VSCodeでデバッグを実行する
 ```bash
@@ -133,7 +137,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ### 設計
 ![](./images/sketch.png)
 
-**[⬆ back to top](#構成)**
+### 実装
 hello world from webpacker
 ```bash
 bin/webpack
@@ -152,7 +156,15 @@ hello_react.jsの動作確認
 rails s
 ```
 
+システムテストを書く
+```bash
+./bin/webpack
+./bin/rails test
+```
+**[⬆ back to top](#構成)**
+
 # 参照 #
 + [Visual Studio Codeを使ってRailsをデバッグ実行してみよう](http://qiita.com/chimame/items/56e48ab3145312ff1786)
 + [【動画付き】Rails 5.1で作るVue.jsアプリケーション ～Herokuデプロイからシステムテストまで～](http://qiita.com/jnchito/items/30ab14ebf29b945559f6)
 + [Rails 5.1でreact環境を作ってみた](http://qiita.com/kikunantoka/items/54f1859496003b1b1aff)
++ [Rails 5.1のSystemTestCaseを試してみた](http://qiita.com/jnchito/items/4d01f2faa1deee36bd27)
