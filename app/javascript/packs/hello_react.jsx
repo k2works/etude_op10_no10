@@ -5,16 +5,37 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const Hello = props => (
-  <div>Hello {props.name}!</div>
-)
+class Hello extends React.Component {
+  constructor(props) {
+    super(props)
+      this.state = { name: this.props.name }
+  }
 
-Hello.defaultProps = {
-  name: 'David'
-}
+  updateName(name) {
+    this.setState({ name });
+  }
 
-Hello.propTypes = {
-  name: React.PropTypes.string
+  render() {
+    return (
+        <div>
+          <h3>
+            Hello, {this.state.name }!
+          </h3>
+          <hr />
+          <form>
+            <label htmlFor="name">
+              Say hello to:
+            </label>
+            <input
+              id="name"
+              type="text"
+              value={this.state.name}
+              onChange={(e) => this.updateName(e.target.value)}
+              />
+          </form>
+        </div>
+    )
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {

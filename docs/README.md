@@ -140,3 +140,5 @@ rails s
 
 # 参照 #
 + [Visual Studio Codeを使ってRailsをデバッグ実行してみよう](http://qiita.com/chimame/items/56e48ab3145312ff1786)
++ [【動画付き】Rails 5.1で作るVue.jsアプリケーション ～Herokuデプロイからシステムテストまで～](http://qiita.com/jnchito/items/30ab14ebf29b945559f6)
++ [Rails 5.1でreact環境を作ってみた](http://qiita.com/kikunantoka/items/54f1859496003b1b1aff)
