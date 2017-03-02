@@ -120,6 +120,18 @@ hello world from webpacker
 bin/webpack
 ```
 
+hello_react.jsxを表示する画面を作成する
+```bash
+rails g controller Home index
+```
+JSのコンパイル
+```bash
+bin/webpack
+```
+hello_react.jsの動作確認
+```bash
+rails s
+```
 
 # 参照 #
 + [Visual Studio Codeを使ってRailsをデバッグ実行してみよう](http://qiita.com/chimame/items/56e48ab3145312ff1786)
