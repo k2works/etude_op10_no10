@@ -85,6 +85,11 @@ ChromeDriverのセットアップ(Mac)
 brew install chromedriver
 ```
 
+PhantomJSのセットアップ(Mac)
+```bash
+brew install phantomjs
+```
+
 ### VSCodeでデバッグを実行する
 ```bash
 bundle exec rdebug-ide --host 0.0.0.0 --port 1234 --dispatcher-port 26162 -- bin/rails s -b 0.0.0.0
