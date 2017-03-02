@@ -1,3 +1,19 @@
+machine:
+  node:
+    version: 7.4.0
+  post:
+    - npm install -g npm@3
+  timezone: Asia/Tokyo
+
+dependencies:
+  pre:
+    - sudo apt-get install fonts-migmix
+
+test:
+  pre:
+    - bin/yarn
+    - bin/webpack
+
 deployment:
   staging:
     branch: master
