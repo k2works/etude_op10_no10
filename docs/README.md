@@ -115,6 +115,11 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ![](./images/sketch.png)
 
 **[⬆ back to top](#構成)**
+hello world from webpacker
+```bash
+bin/webpack
+```
+
 
 # 参照 #
 + [Visual Studio Codeを使ってRailsをデバッグ実行してみよう](http://qiita.com/chimame/items/56e48ab3145312ff1786)

@@ -27,5 +27,5 @@ etude_op10_no10.iml
 .yardoc
 /doc/*
 .env
-.env/public/packs
+/public/packs
 /node_modules
