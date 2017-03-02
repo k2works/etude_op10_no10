@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "hiroshima-arc/manhattan"
   config.vm.box_version = "1.0.0"
 
-  config.vm.network :forwarded_port, guest:8080, host:8080, id:"jenkins"
+  config.vm.network :forwarded_port, guest:8080, host:9000, id:"jenkins"
   config.vm.network :forwarded_port, guest:3000, host:3000, id:"ruby"
   config.vm.network :forwarded_port, guest:1234, host:1234, id:"ruby-debug"
   config.vm.network :private_network, ip:"192.168.30.1"
