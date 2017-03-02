@@ -1,9 +1,7 @@
 @startuml
 class Game
-class Frame
-class Throw
+class Score
 
-Game --> "10" Frame
-Frame --> "1..3" Throw
+Game"1" *-- "1"Score
 
 @enduml
