@@ -27,55 +27,55 @@
             <%= select_tag 'throw01', options_for_select(scores, :selected => params ? params[:throw01] : default_selected) %>
           </td>
           <td>
-            <%= select_tag 'throw02', options_for_select({}, :selected => params ? params[:throw02] : default_selected) %>
+            <%= select_tag 'throw02', options_for_select(scores, :selected => params ? params[:throw02] : default_selected) %>
           </td>
           <td>
             <%= select_tag 'throw03', options_for_select(scores, :selected => params ? params[:throw03] : default_selected) %>
           </td>
           <td>
-            <%= select_tag 'throw04', options_for_select({}, :selected => params ? params[:throw04] : default_selected) %>
+            <%= select_tag 'throw04', options_for_select(scores, :selected => params ? params[:throw04] : default_selected) %>
           </td>
           <td>
             <%= select_tag 'throw05', options_for_select(scores, :selected => params ? params[:throw05] : default_selected) %>
           </td>
           <td>
-            <%= select_tag 'throw06', options_for_select({},:selected => params ? params[:throw06] : default_selected) %>
+            <%= select_tag 'throw06', options_for_select(scores,:selected => params ? params[:throw06] : default_selected) %>
           </td>
           <td>
             <%= select_tag 'throw07', options_for_select(scores,:selected => params ? params[:throw07] : default_selected) %>
           </td>
           <td>
-            <%= select_tag 'throw08', options_for_select({},:selected => params ? params[:throw08] : default_selected) %>
+            <%= select_tag 'throw08', options_for_select(scores,:selected => params ? params[:throw08] : default_selected) %>
           </td>
           <td>
             <%= select_tag 'throw09', options_for_select(scores,:selected => params ? params[:throw09] : default_selected) %>
           </td>
           <td>
-            <%= select_tag 'throw10', options_for_select({},:selected => params ? params[:throw10] : default_selected) %>
+            <%= select_tag 'throw10', options_for_select(scores,:selected => params ? params[:throw10] : default_selected) %>
           </td>
           <td>
             <%= select_tag 'throw11', options_for_select(scores,:selected => params ? params[:throw11] : default_selected) %>
           </td>
           <td>
-            <%= select_tag 'throw12', options_for_select({},:selected => params ? params[:throw12] : default_selected) %>
+            <%= select_tag 'throw12', options_for_select(scores,:selected => params ? params[:throw12] : default_selected) %>
           </td>
           <td>
             <%= select_tag 'throw13', options_for_select(scores,:selected => params ? params[:throw13] : default_selected) %>
           </td>
           <td>
-            <%= select_tag 'throw14', options_for_select({},:selected => params ? params[:throw14] : default_selected) %>
+            <%= select_tag 'throw14', options_for_select(scores,:selected => params ? params[:throw14] : default_selected) %>
           </td>
           <td>
             <%= select_tag 'throw15', options_for_select(scores,:selected => params ? params[:throw15] : default_selected) %>
           </td>
           <td>
-            <%= select_tag 'throw16', options_for_select({},:selected => params ? params[:throw16] : default_selected) %>
+            <%= select_tag 'throw16', options_for_select(scores,:selected => params ? params[:throw16] : default_selected) %>
           </td>
           <td>
             <%= select_tag 'throw17', options_for_select(scores,:selected => params ? params[:throw17] : default_selected) %>
           </td>
           <td>
-            <%= select_tag 'throw18', options_for_select({},:selected => params ? params[:throw18] : default_selected) %>
+            <%= select_tag 'throw18', options_for_select(scores,:selected => params ? params[:throw18] : default_selected) %>
           </td>
           <td>
             <%= select_tag 'throw19', options_for_select(scores,:selected => params ? params[:throw19] : default_selected) %></td>
@@ -116,7 +116,7 @@
             <%= text_field_tag :throw_sum, :sum, size:3,value:game.score_for_frame(9),readonly:false %>
           </td>
           <td colspan="2">
-            <%= text_field_tag :throw_sum, :sum, size:3, value:game.score_for_frame(default_selected), readonly:false %>
+            <%= text_field_tag :throw_sum, :sum, size:3, value:game.score_for_frame(10), readonly:false %>
           </td>
         </tr>
       </tobody>
