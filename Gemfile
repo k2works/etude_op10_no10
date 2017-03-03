@@ -71,3 +71,5 @@ gem 'annotate'
 gem 'rack-dev-mark'
 gem 'dotenv-rails'
 gem 'webpacker', github: 'rails/webpacker'
+gem 'guard-livereload', '~> 2.5', require: false
+gem 'rack-livereload'
