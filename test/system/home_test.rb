@@ -6,12 +6,7 @@ class HomeTest < ApplicationSystemTestCase
     visit root_path
 
     # テクストが表示されているかを検証する
-    assert_text 'Hello, React!'
+    assert_text 'Bowling Game Scorer'
 
-    # nameにReactが入力されていることを検証する
-    assert has_field?('name', with: 'React')
-
-    # nameに入力できることを検証する
-    fill_in 'Say hello to', with: 'すごーい'
   end
 end
