@@ -13,7 +13,7 @@
             "type": "Ruby",
             "request": "attach",
             "cwd": "${workspaceRoot}",
-            "remoteHost": "192.168.30.1",
+            "remoteHost": "127.0.0.1",
             "remotePort": "1234",
             "remoteWorkspaceRoot": "${workspaceRoot}"
         },
@@ -56,6 +56,16 @@
             "request": "launch",
             "cwd": "${workspaceRoot}",
             "program": "${workspaceRoot}/bin/cucumber"
+        },
+        {
+            "name": "E2E test",
+            "type": "Ruby",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "program": "${workspaceRoot}/bin/rails",
+            "args": [
+                "test"
+            ]
         }
     ]
 }
