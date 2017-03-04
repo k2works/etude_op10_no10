@@ -31,8 +31,6 @@ class HomeTest < ApplicationSystemTestCase
   end
 
   test "calculate thrwo sum when sample game" do
-    #skip("it's not work so I need fix program")
-
     visit_root_path
 
     throws = [

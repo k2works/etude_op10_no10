@@ -55,7 +55,6 @@ class BowlingGameForm
     @throw21 = params[:throw21].to_i unless params[:throw21].empty?
   end
 
-
   def add
     @game.add(throw01) unless throw01.nil?
     @game.add(throw02) unless throw02.nil?

@@ -1,10 +1,10 @@
 <h1>Bowling Game Scorer</h1>
 
 <%
-  @form = BowlingGameForm.new unless @form
-  scores = BowlingGameForm::SCORES
-  game = @form.game
+  @form = BowlingGameScoreService.create_from if @form.nil?
+  scores = BowlingGameScoreService.get_scores_for_select
 %>
+
 <%= form_for @form, url: :home_calculate do |f| %>
     <table>
       <tobody>
@@ -83,39 +83,39 @@
           <td>
             <%= f.select 'throw21', options_for_select(scores, :selected => @form.throw21), :include_blank => true %></td>
           <td>
-            <%= text_field_tag :throw_sum, :sum, size:3,value:game.score,readonly:false %>
+            <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score,readonly:false %>
           </td>
         </tr>
         <tr>
           <td colspan="2">
-            <%= text_field_tag :throw_sum, :sum, size:3,value:game.score_for_frame(1),readonly:false %>
+            <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(1),readonly:false %>
           </td>
           <td colspan="2">
-            <%= text_field_tag :throw_sum, :sum, size:3,value:game.score_for_frame(2),readonly:false %>
+            <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(2),readonly:false %>
           </td>
           <td colspan="2">
-            <%= text_field_tag :throw_sum, :sum, size:3,value:game.score_for_frame(3),readonly:false %>
+            <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(3),readonly:false %>
           </td>
           <td colspan="2">
-            <%= text_field_tag :throw_sum, :sum, size:3,value:game.score_for_frame(4),readonly:false %>
+            <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(4),readonly:false %>
           </td>
           <td colspan="2">
-            <%= text_field_tag :throw_sum, :sum, size:3,value:game.score_for_frame(5),readonly:false %>
+            <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(5),readonly:false %>
           </td>
           <td colspan="2">
-            <%= text_field_tag :throw_sum, :sum, size:3,value:game.score_for_frame(6),readonly:false %>
+            <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(6),readonly:false %>
           </td>
           <td colspan="2">
-            <%= text_field_tag :throw_sum, :sum, size:3,value:game.score_for_frame(7),readonly:false %>
+            <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(7),readonly:false %>
           </td>
           <td colspan="2">
-            <%= text_field_tag :throw_sum, :sum, size:3,value:game.score_for_frame(8),readonly:false %>
+            <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(8),readonly:false %>
           </td>
           <td colspan="2">
-            <%= text_field_tag :throw_sum, :sum, size:3,value:game.score_for_frame(9),readonly:false %>
+            <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(9),readonly:false %>
           </td>
           <td colspan="2">
-            <%= text_field_tag :throw_sum, :sum, size:3, value:game.score_for_frame(10), readonly:false %>
+            <%= text_field_tag :throw_sum, :sum, size:3, value:@form.game.score_for_frame(10), readonly:false %>
           </td>
         </tr>
       </tobody>

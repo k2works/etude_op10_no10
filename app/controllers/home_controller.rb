@@ -3,9 +3,7 @@ class HomeController < ApplicationController
   end
 
   def calculate
-    @form = BowlingGameForm.new
-    @form.assign_attributes(params)
-    @form.add
+    @form = BowlingGameScoreService.new.setup_form(params)
     render :'home/index'
   end
 
