@@ -10,7 +10,10 @@ class HomeTest < ApplicationSystemTestCase
   test "calculate throw sum when perfect game" do
     visit_root_path
 
-    set_all_same_throw('X')
+    set_all_same_throw('X') do
+      i.even? ? (select '', from: current_throw) : (select 'X', from: current_throw)
+      select 'X', from: current_throw if i == 20
+    end
 
     click_on '計算する'
 
@@ -28,7 +31,7 @@ class HomeTest < ApplicationSystemTestCase
   end
 
   test "calculate thrwo sum when sample game" do
-    skip("it's not work so I need fix program")
+    #skip("it's not work so I need fix program")
 
     visit_root_path
 
@@ -57,7 +60,7 @@ class HomeTest < ApplicationSystemTestCase
     ]
     21.times do |i|
       i+=1
-      current_throw = 'throw'+ format("%02d", i)
+      current_throw = get_current_throw_for_select(i)
       select throws[i-1].keys[0].to_s, from: current_throw
     end
 
@@ -74,8 +77,12 @@ class HomeTest < ApplicationSystemTestCase
   def set_all_same_throw(throw)
     21.times do |i|
       i+=1
-      current_throw = 'bowling_game_form[throw'+ format("%02d", i) +']'
+      current_throw = get_current_throw_for_select(i)
       select throw, from: current_throw
     end
+  end
+
+  def get_current_throw_for_select(i)
+    'bowling_game_form[throw'+ format("%02d", i) +']'
   end
 end

@@ -6,7 +6,9 @@ class HomeController < ApplicationController
     @game = Bowling::Game.new
     @params = throw_params
     @params.each do |k,v|
-      @game.add(v.to_i)
+      unless v.empty?
+        @game.add(v.to_i)
+      end
     end
     render :'home/index'
   end
