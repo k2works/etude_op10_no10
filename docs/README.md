@@ -175,7 +175,7 @@ rails s
 システムテストを書く
 ```bash
 ./bin/webpack
-./bin/rails testA
+./bin/rails test
 ```
 **[⬆ back to top](#構成)**
 

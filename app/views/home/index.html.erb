@@ -1,7 +1,7 @@
 <h1>Bowling Game Scorer</h1>
 <%
   default_selected = 10
-  scores = {'X': default_selected, '9':9, '8':8, '7':7, '6':6, '5':5, '4':4, '3':3, '2':2, '1':1, 'G':0}
+  scores = { 'X': 10, '9':9, '8':8, '7':7, '6':6, '5':5, '4':4, '3':3, '2':2, '1':1, 'G':0, '':nil}
   game = Bowling::Game.new
   game = @game if @game.present?
   params = @params if @params.present?
