@@ -74,7 +74,7 @@ class HomeTest < ApplicationSystemTestCase
   def set_all_same_throw(throw)
     21.times do |i|
       i+=1
-      current_throw = 'throw'+ format("%02d", i)
+      current_throw = 'bowling_game_form[throw'+ format("%02d", i) +']'
       select throw, from: current_throw
     end
   end

@@ -17,7 +17,7 @@ class HomeController < ApplicationController
 
   private
   def throw_params
-    params.permit(
+    params.require(:bowling_game_form).permit(
         :throw01,
         :throw02,
         :throw03,
