@@ -16,6 +16,7 @@ node('master') {
   sh "~/.rbenv/versions/2.4.0/bin/bundle exec rake spec"
 
   stage "Integration test"
+  sh "~/.rbenv/versions/2.4.0/bin/bundle exec rake test"
 
   stage "deploy"
   sh '''if ! git ls-remote heroku; then

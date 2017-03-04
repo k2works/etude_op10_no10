@@ -90,6 +90,14 @@ PhantomJSのセットアップ(Mac)
 ```bash
 brew install phantomjs
 ```
+PhantomJSのセットアップ(Vagrant)
+```bash
+wget -O /tmp/phantomjs-2.1.1-linux-x86_64.tar.bz2 https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
+cd /tmp
+bzip2 -dc /tmp/phantomjs-2.1.1-linux-x86_64.tar.bz2 | tar xvf -
+sudo mv /tmp/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin/
+phantomjs --version
+```
 
 ### VSCodeでデバッグを実行する
 ```bash
@@ -132,7 +140,9 @@ rbenv local 2.4.0
 /usr/local/heroku/bin/heroku
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
-`http://192.168.30.1:8080`に接続してJenkinsをセットアップする
+`http://0.0.0.0:8080`に接続してJenkinsをセットアップする
+
+Crumb Dataが必要な場合は`http://0.0.0.0:9000/crumbIssuer/api/json`からcrumbを取得する
 
 **[⬆ back to top](#構成)**
 
@@ -165,7 +175,7 @@ rails s
 システムテストを書く
 ```bash
 ./bin/webpack
-./bin/rails test
+./bin/rails testA
 ```
 **[⬆ back to top](#構成)**
 
@@ -174,3 +184,5 @@ rails s
 + [【動画付き】Rails 5.1で作るVue.jsアプリケーション ～Herokuデプロイからシステムテストまで～](http://qiita.com/jnchito/items/30ab14ebf29b945559f6)
 + [Rails 5.1でreact環境を作ってみた](http://qiita.com/kikunantoka/items/54f1859496003b1b1aff)
 + [Rails 5.1のSystemTestCaseを試してみた](http://qiita.com/jnchito/items/4d01f2faa1deee36bd27)
++ [How to request for Crumb issuer for jenkins](http://stackoverflow.com/questions/16738441/how-to-request-for-crumb-issuer-for-jenkins)
++ [Ubuntu16.04でヘッドレスブラウザであるPhantomJS2.1をインストールする](http://qiita.com/gano/items/9f4179a2f2f47f440e6a)
