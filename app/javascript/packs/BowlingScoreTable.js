@@ -1,16 +1,6 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React, { Component } from 'react'
 
-class Hello extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {name: this.props.name}
-    }
-
-    updateName(name) {
-        this.setState({name});
-    }
-
+class BowlingScoreTable extends React.Component {
     render() {
         return (
             <table>
@@ -386,10 +376,4 @@ class Hello extends React.Component {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    ReactDOM.render(
-<Hello name="React" />,
-    document.body.appendChild(document.createElement('table')),
-)
-})
-
+export default BowlingScoreTable
