@@ -1,5 +1,19 @@
 import React, { Component } from 'react'
 
+class BowlingScoreTable extends React.Component {
+    render() {
+        return (
+            <table>
+                <tobody>
+                    <Frames/>
+                    <Throws/>
+                    <ScoreForFrames/>
+                </tobody>
+            </table>
+        )
+    }
+}
+
 class Frames extends React.Component {
     render() {
         return (
@@ -21,6 +35,11 @@ class Frames extends React.Component {
 }
 
 class Throws extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {value: 0}
+    }
+
     render() {
         return (
             <tr>
@@ -88,7 +107,7 @@ class Throws extends React.Component {
                     <SelectItems/>
                 </td>
                 <td>
-                    <input size="3" name="sum" value="300" readonly="" type="text"/>
+                    <input size="3" name="sum" value={this.state.value} readonly="" type="text"/>
                 </td>
             </tr>
         )
@@ -96,38 +115,43 @@ class Throws extends React.Component {
 }
 
 class ScoreForFrames extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {value: 0}
+    }
+
     render() {
         return (
             <tr>
                 <td colSpan="2">
-                    <input size="3" name="fs" value="30" readonly="" type="text"/>
+                    <input size="3" name="fs" value={this.state.value} readonly="" type="text"/>
                 </td>
                 <td colSpan="2">
-                    <input size="3" name="fs" value="30" readonly="" type="text"/>
+                    <input size="3" name="fs" value={this.state.value} readonly="" type="text"/>
                 </td>
                 <td colSpan="2">
-                    <input size="3" name="fs" value="30" readonly="" type="text"/>
+                    <input size="3" name="fs" value={this.state.value} readonly="" type="text"/>
                 </td>
                 <td colSpan="2">
-                    <input size="3" name="fs" value="30" readonly="" type="text"/>
+                    <input size="3" name="fs" value={this.state.value} readonly="" type="text"/>
                 </td>
                 <td colSpan="2">
-                    <input size="3" name="fs" value="30" readonly="" type="text"/>
+                    <input size="3" name="fs" value={this.state.value} readonly="" type="text"/>
                 </td>
                 <td colSpan="2">
-                    <input size="3" name="fs" value="30" readonly="" type="text"/>
+                    <input size="3" name="fs" value={this.state.value} readonly="" type="text"/>
                 </td>
                 <td colSpan="2">
-                    <input size="3" name="fs" value="30" readonly="" type="text"/>
+                    <input size="3" name="fs" value={this.state.value} readonly="" type="text"/>
                 </td>
                 <td colSpan="2">
-                    <input size="3" name="fs" value="30" readonly="" type="text"/>
+                    <input size="3" name="fs" value={this.state.value} readonly="" type="text"/>
                 </td>
                 <td colSpan="2">
-                    <input size="3" name="fs" value="30" readonly="" type="text"/>
+                    <input size="3" name="fs" value={this.state.value} readonly="" type="text"/>
                 </td>
                 <td colSpan="2">
-                    <input size="3" name="fs" value="30" readonly="" type="text"/>
+                    <input size="3" name="fs" value={this.state.value} readonly="" type="text"/>
                 </td>
             </tr>
         )
@@ -135,9 +159,20 @@ class ScoreForFrames extends React.Component {
 }
 
 class SelectItems extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {value: ''}
+        this.handleChange = this.handleChange.bind(this)
+    }
+
+    handleChange(event) {
+        this.setState({value: event.target.value})
+    }
+
     render() {
         return (
-            <select>
+            <select value={this.state.value} onChange={this.handleChange}>
+                <option value=""></option>
                 <option value="10">X</option>
                 <option value="9">9</option>
                 <option value="8">8</option>
@@ -150,20 +185,6 @@ class SelectItems extends React.Component {
                 <option value="1">1</option>
                 <option value="0">G</option>
             </select>
-        )
-    }
-}
-
-class BowlingScoreTable extends React.Component {
-    render() {
-        return (
-            <table>
-                <tobody>
-                    <Frames/>
-                    <Throws/>
-                    <ScoreForFrames/>
-                </tobody>
-            </table>
         )
     }
 }
