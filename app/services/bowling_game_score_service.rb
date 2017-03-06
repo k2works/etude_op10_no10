@@ -3,7 +3,7 @@ class BowlingGameScoreService
     BowlingGameForm.new
   end
 
-  def setup_form(params)
+  def self.setup_form(params)
     form = BowlingGameForm.new
     form.assign_attributes(params)
     form.add
