@@ -36,7 +36,7 @@ class Frames extends React.Component {
 
 class Throws extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {value: 0}
     }
 
@@ -116,7 +116,7 @@ class Throws extends React.Component {
 
 class ScoreForFrames extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {value: 0}
     }
 
@@ -160,8 +160,11 @@ class ScoreForFrames extends React.Component {
 
 class SelectItems extends React.Component {
     constructor(props) {
-        super(props)
-        this.state = {value: ''}
+        super(props);
+        this.state = {
+            value: '',
+            pins: [null,10,9,8,7,6,5,4,3,2,1,0]
+        };
         this.handleChange = this.handleChange.bind(this)
     }
 
@@ -170,20 +173,19 @@ class SelectItems extends React.Component {
     }
 
     render() {
+        let options = this.state.pins.map(function(pin) {
+            if (pin === 10) {
+                pin = 'X'
+            } else if (pin === 0) {
+                pin = 'G'
+            }
+            return <option value={pin} key={pin}>{pin}</option>
+        });
         return (
-            <select value={this.state.value} onChange={this.handleChange}>
-                <option value=""></option>
-                <option value="10">X</option>
-                <option value="9">9</option>
-                <option value="8">8</option>
-                <option value="7">7</option>
-                <option value="6">6</option>
-                <option value="5">5</option>
-                <option value="4">4</option>
-                <option value="3">3</option>
-                <option value="2">2</option>
-                <option value="1">1</option>
-                <option value="0">G</option>
+            <select
+                value={this.state.value}
+                onChange={this.handleChange}>
+                {options}
             </select>
         )
     }
