@@ -51,15 +51,17 @@ class Throws extends React.Component {
     handlePinsForNextThrow(event) {
         if (event.target.name === '19') {
             let theThrow = event.target.value;
-            this.setState({firstThrow10Th:theThrow})
+            this.setState({firstThrow10Th:theThrow});
             this.setState({nextPins: Throws.getPinsFor10ThFrame(theThrow)});
         } else if (event.target.name === '20') {
             let theThrow = event.target.value;
             if (this.isSpareIn10thFrame(theThrow)) {
-                this.setState({lastPins: [null, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]});
+                this.setState({lastPins: [null, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]});
+            } else if (this.isGarterIn10thFrame(theThrow)) {
+                this.setState({lastPins: [null]});
             } else {
                 let lastThrow = event.target.value;
-                let theThrow = parseInt(this.state.firstThrow10Th) + parseInt(lastThrow);
+                let theThrow = this.calculateLastTwoThreeThrow(lastThrow);
                 this.setState({lastPins: Throws.getPinsFor10ThFrame(theThrow)});
             }
         } else {
@@ -68,8 +70,21 @@ class Throws extends React.Component {
         }
     }
 
+    calculateLastTwoThreeThrow(lastThrow) {
+        return parseInt(this.parseThrow(this.state.firstThrow10Th)) + parseInt(this.parseThrow(lastThrow));
+    }
+
+    isGarterIn10thFrame(lastThrow) {
+        let theThrow = this.calculateLastTwoThreeThrow(lastThrow);
+        if (theThrow === 0) {
+            return true
+        } else {
+            return false
+        }
+    }
+
     isSpareIn10thFrame(lastThrow) {
-        let theThrow = parseInt(this.state.firstThrow10Th) + parseInt(lastThrow);
+        let theThrow = this.calculateLastTwoThreeThrow(lastThrow);
         if (theThrow > 9) {
             return true
         } else {
@@ -77,30 +92,40 @@ class Throws extends React.Component {
         }
     }
 
+    parseThrow(theThrow) {
+        if (theThrow === 'X') {
+            return 10
+        } else if (theThrow === 'G') {
+            return 0
+        } else {
+            return theThrow;
+        }
+    }
+
     static getPinsFor10ThFrame(theThrow) {
         switch (theThrow.toString()) {
             case 'X':
-                return [null, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+                return [null, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
             case '9':
-                return [null, 1];
+                return [null, 1, 0];
             case '8':
-                return [null, 2, 1];
+                return [null, 2, 1, 0];
             case '7':
-                return [null, 3, 2, 1];
+                return [null, 3, 2, 1, 0];
             case '6':
-                return [null, 4, 3, 2, 1];
+                return [null, 4, 3, 2, 1, 0];
             case '5':
-                return [null, 5, 4, 3, 2, 1];
+                return [null, 5, 4, 3, 2, 1, 0];
             case '4':
-                return [null, 6, 5, 4, 3, 2, 1];
+                return [null, 6, 5, 4, 3, 2, 1, 0];
             case '3':
-                return [null, 7, 6, 5, 4, 3, 2, 1];
+                return [null, 7, 6, 5, 4, 3, 2, 1, 0];
             case '2':
-                return [null, 8, 7, 6, 5, 4, 3, 2, 1];
+                return [null, 8, 7, 6, 5, 4, 3, 2, 1, 0];
             case '1':
-                return [null, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+                return [null, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
             case 'G':
-                return [null, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+                return [null, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
         }
     }
 
@@ -110,34 +135,34 @@ class Throws extends React.Component {
                 this.setState({nextPins: [null]});
                 break;
             case '9':
-                this.setState({nextPins: [null, 1]});
+                this.setState({nextPins: [null, 1, 0]});
                 break;
             case '8':
-                this.setState({nextPins: [null, 2, 1]});
+                this.setState({nextPins: [null, 2, 1, 0]});
                 break;
             case '7':
-                this.setState({nextPins: [null, 3, 2, 1]});
+                this.setState({nextPins: [null, 3, 2, 1, 0]});
                 break;
             case '6':
-                this.setState({nextPins: [null, 4, 3, 2, 1]});
+                this.setState({nextPins: [null, 4, 3, 2, 1, 0]});
                 break;
             case '5':
-                this.setState({nextPins: [null, 5, 4, 3, 2, 1]});
+                this.setState({nextPins: [null, 5, 4, 3, 2, 1, 0]});
                 break;
             case '4':
-                this.setState({nextPins: [null, 6, 5, 4, 3, 2, 1]});
+                this.setState({nextPins: [null, 6, 5, 4, 3, 2, 1, 0]});
                 break;
             case '3':
-                this.setState({nextPins: [null, 7, 6, 5, 4, 3, 2, 1]});
+                this.setState({nextPins: [null, 7, 6, 5, 4, 3, 2, 1, 0]});
                 break;
             case '2':
-                this.setState({nextPins: [null, 8, 7, 6, 5, 4, 3, 2, 1]});
+                this.setState({nextPins: [null, 8, 7, 6, 5, 4, 3, 2, 1, 0]});
                 break;
             case '1':
-                this.setState({nextPins: [null, 9, 8, 7, 6, 5, 4, 3, 2, 1]});
+                this.setState({nextPins: [null, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]});
                 break;
             case 'G':
-                this.setState({nextPins: [null, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]});
+                this.setState({nextPins: [null, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]});
         }
     }
 
