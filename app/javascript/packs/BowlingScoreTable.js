@@ -37,74 +37,175 @@ class Frames extends React.Component {
 class Throws extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {value: 0}
+        this.state = {
+            value: 0,
+            pins: [null,10,9,8,7,6,5,4,3,2,1,0],
+            nextPins: [],
+            lastPins: [],
+            firstThrow10Th: 0,
+            secondThrow10Th: 0
+        };
+        this.handlePinsForNextThrow= this.handlePinsForNextThrow.bind(this)
+    }
+
+    handlePinsForNextThrow(event) {
+        if (event.target.name === '19') {
+            let theThrow = event.target.value;
+            this.setState({firstThrow10Th:theThrow})
+            this.setState({nextPins: Throws.getPinsFor10ThFrame(theThrow)});
+        } else if (event.target.name === '20') {
+            let theThrow = event.target.value;
+            if (this.isSpareIn10thFrame(theThrow)) {
+                this.setState({lastPins: [null, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]});
+            } else {
+                let lastThrow = event.target.value;
+                let theThrow = parseInt(this.state.firstThrow10Th) + parseInt(lastThrow);
+                this.setState({lastPins: Throws.getPinsFor10ThFrame(theThrow)});
+            }
+        } else {
+            let firstThrow = event.target.value;
+            this.setPinsFor1thTo9thFrame(firstThrow);
+        }
+    }
+
+    isSpareIn10thFrame(lastThrow) {
+        let theThrow = parseInt(this.state.firstThrow10Th) + parseInt(lastThrow);
+        if (theThrow > 9) {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    static getPinsFor10ThFrame(theThrow) {
+        switch (theThrow.toString()) {
+            case 'X':
+                return [null, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+            case '9':
+                return [null, 1];
+            case '8':
+                return [null, 2, 1];
+            case '7':
+                return [null, 3, 2, 1];
+            case '6':
+                return [null, 4, 3, 2, 1];
+            case '5':
+                return [null, 5, 4, 3, 2, 1];
+            case '4':
+                return [null, 6, 5, 4, 3, 2, 1];
+            case '3':
+                return [null, 7, 6, 5, 4, 3, 2, 1];
+            case '2':
+                return [null, 8, 7, 6, 5, 4, 3, 2, 1];
+            case '1':
+                return [null, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+            case 'G':
+                return [null, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+        }
+    }
+
+    setPinsFor1thTo9thFrame(firstThrow) {
+        switch (firstThrow.toString()) {
+            case 'X':
+                this.setState({nextPins: [null]});
+                break;
+            case '9':
+                this.setState({nextPins: [null, 1]});
+                break;
+            case '8':
+                this.setState({nextPins: [null, 2, 1]});
+                break;
+            case '7':
+                this.setState({nextPins: [null, 3, 2, 1]});
+                break;
+            case '6':
+                this.setState({nextPins: [null, 4, 3, 2, 1]});
+                break;
+            case '5':
+                this.setState({nextPins: [null, 5, 4, 3, 2, 1]});
+                break;
+            case '4':
+                this.setState({nextPins: [null, 6, 5, 4, 3, 2, 1]});
+                break;
+            case '3':
+                this.setState({nextPins: [null, 7, 6, 5, 4, 3, 2, 1]});
+                break;
+            case '2':
+                this.setState({nextPins: [null, 8, 7, 6, 5, 4, 3, 2, 1]});
+                break;
+            case '1':
+                this.setState({nextPins: [null, 9, 8, 7, 6, 5, 4, 3, 2, 1]});
+                break;
+            case 'G':
+                this.setState({nextPins: [null, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]});
+        }
     }
 
     render() {
         return (
             <tr>
-                <td>
-                    <SelectItems/>
+                <td onBlur={this.handlePinsForNextThrow}>
+                    <SelectItems currentThrow="1" pins={this.state.pins} ref="throw01"/>
                 </td>
                 <td>
-                    <SelectItems/>
+                    <SelectItems currentThrow="2" pins={this.state.nextPins} ref="throw02"/>
+                </td>
+                <td onBlur={this.handlePinsForNextThrow}>
+                    <SelectItems currentThrow="3" pins={this.state.pins} ref="throw03"/>
                 </td>
                 <td>
-                    <SelectItems/>
+                    <SelectItems currentThrow="4" pins={this.state.nextPins} ref="throw04"/>
+                </td>
+                <td onBlur={this.handlePinsForNextThrow}>
+                    <SelectItems currentThrow="5" pins={this.state.pins} ref="throw05"/>
                 </td>
                 <td>
-                    <SelectItems/>
+                    <SelectItems currentThrow="6" pins={this.state.nextPins} ref="throw06"/>
+                </td>
+                <td onBlur={this.handlePinsForNextThrow}>
+                    <SelectItems currentThrow="7" pins={this.state.pins} ref="throw07"/>
                 </td>
                 <td>
-                    <SelectItems/>
+                    <SelectItems currentThrow="8" pins={this.state.nextPins} ref="throw08"/>
+                </td>
+                <td onBlur={this.handlePinsForNextThrow}>
+                    <SelectItems currentThrow="9" pins={this.state.pins} ref="throw09"/>
                 </td>
                 <td>
-                    <SelectItems/>
+                    <SelectItems currentThrow="10" pins={this.state.nextPins} ref="throw10"/>
+                </td>
+                <td onBlur={this.handlePinsForNextThrow}>
+                    <SelectItems currentThrow="11" pins={this.state.pins} ref="throw11"/>
                 </td>
                 <td>
-                    <SelectItems/>
+                    <SelectItems currentThrow="12" pins={this.state.nextPins} ref="throw12"/>
+                </td>
+                <td onBlur={this.handlePinsForNextThrow}>
+                    <SelectItems currentThrow="13" pins={this.state.pins} ref="throw13"/>
                 </td>
                 <td>
-                    <SelectItems/>
+                    <SelectItems currentThrow="14" pins={this.state.nextPins} ref="throw14"/>
+                </td>
+                <td onBlur={this.handlePinsForNextThrow}>
+                    <SelectItems currentThrow="15" pins={this.state.pins} ref="throw15"/>
                 </td>
                 <td>
-                    <SelectItems/>
+                    <SelectItems currentThrow="16" pins={this.state.nextPins} ref="throw16"/>
+                </td>
+                <td onBlur={this.handlePinsForNextThrow}>
+                    <SelectItems currentThrow="17" pins={this.state.pins} ref="throw17"/>
                 </td>
                 <td>
-                    <SelectItems/>
+                    <SelectItems currentThrow="18" pins={this.state.nextPins} ref="throw18"/>
+                </td>
+                <td onBlur={this.handlePinsForNextThrow}>
+                    <SelectItems currentThrow="19" pins={this.state.pins} ref="throw19"/>
+                </td>
+                <td onBlur={this.handlePinsForNextThrow}>
+                    <SelectItems currentThrow="20" pins={this.state.nextPins} ref="throw20"/>
                 </td>
                 <td>
-                    <SelectItems/>
-                </td>
-                <td>
-                    <SelectItems/>
-                </td>
-                <td>
-                    <SelectItems/>
-                </td>
-                <td>
-                    <SelectItems/>
-                </td>
-                <td>
-                    <SelectItems/>
-                </td>
-                <td>
-                    <SelectItems/>
-                </td>
-                <td>
-                    <SelectItems/>
-                </td>
-                <td>
-                    <SelectItems/>
-                </td>
-                <td>
-                    <SelectItems/>
-                </td>
-                <td>
-                    <SelectItems/>
-                </td>
-                <td>
-                    <SelectItems/>
+                    <SelectItems currentThrow="21" pins={this.state.lastPins} ref="throw21"/>
                 </td>
                 <td>
                     <input size="3" name="sum" value={this.state.value} readonly="" type="text"/>
@@ -165,7 +266,12 @@ class SelectItems extends React.Component {
             value: '',
             pins: [null,10,9,8,7,6,5,4,3,2,1,0]
         };
-        this.handleChange = this.handleChange.bind(this)
+        this.handleOnClick = this.handleOnClick.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleOnClick(event) {
+        this.setState({pins: this.props.pins})
     }
 
     handleChange(event) {
@@ -183,8 +289,10 @@ class SelectItems extends React.Component {
         });
         return (
             <select
+                name={this.props.currentThrow}
                 value={this.state.value}
-                onChange={this.handleChange}>
+                onChange={this.handleChange}
+                onClick={this.handleOnClick}>
                 {options}
             </select>
         )
