@@ -1,3 +1,4 @@
 web: RAILS_ENV=development_web bundle exec rails s
 # watcher: ./bin/webpack-watcher
 hot: ./bin/webpack-dev-server
+guard: bundle exec guard -d
