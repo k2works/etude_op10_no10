@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 
 class BowlingScoreTable extends React.Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
         return (
             <table>
                 <tobody>
                     <Frames/>
-                    <Throws/>
+                    <Throws ref="throws"/>
                     <ScoreForFrames/>
                 </tobody>
             </table>
@@ -49,11 +52,11 @@ class Throws extends React.Component {
     }
 
     handlePinsForNextThrow(event) {
-        if (event.target.name === '19') {
+        if (event.target.name === 'throw19') {
             let theThrow = event.target.value;
             this.setState({firstThrow10Th:theThrow});
             this.setState({nextPins: Throws.getPinsFor10ThFrame(theThrow)});
-        } else if (event.target.name === '20') {
+        } else if (event.target.name === 'throw20') {
             let theThrow = event.target.value;
             if (this.isSpareIn10thFrame(theThrow)) {
                 this.setState({lastPins: [null, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]});
@@ -170,67 +173,67 @@ class Throws extends React.Component {
         return (
             <tr>
                 <td onBlur={this.handlePinsForNextThrow}>
-                    <SelectItems currentThrow="1" pins={this.state.pins} ref="throw01"/>
+                    <SelectItems currentThrow="throw01" pins={this.state.pins} ref="throw01"/>
                 </td>
                 <td>
-                    <SelectItems currentThrow="2" pins={this.state.nextPins} ref="throw02"/>
+                    <SelectItems currentThrow="throw02" pins={this.state.nextPins} ref="throw02"/>
                 </td>
                 <td onBlur={this.handlePinsForNextThrow}>
-                    <SelectItems currentThrow="3" pins={this.state.pins} ref="throw03"/>
+                    <SelectItems currentThrow="throw03" pins={this.state.pins} ref="throw03"/>
                 </td>
                 <td>
-                    <SelectItems currentThrow="4" pins={this.state.nextPins} ref="throw04"/>
+                    <SelectItems currentThrow="throw04" pins={this.state.nextPins} ref="throw04"/>
                 </td>
                 <td onBlur={this.handlePinsForNextThrow}>
-                    <SelectItems currentThrow="5" pins={this.state.pins} ref="throw05"/>
+                    <SelectItems currentThrow="throw05" pins={this.state.pins} ref="throw05"/>
                 </td>
                 <td>
-                    <SelectItems currentThrow="6" pins={this.state.nextPins} ref="throw06"/>
+                    <SelectItems currentThrow="throw06" pins={this.state.nextPins} ref="throw06"/>
                 </td>
                 <td onBlur={this.handlePinsForNextThrow}>
-                    <SelectItems currentThrow="7" pins={this.state.pins} ref="throw07"/>
+                    <SelectItems currentThrow="throw07" pins={this.state.pins} ref="throw07"/>
                 </td>
                 <td>
-                    <SelectItems currentThrow="8" pins={this.state.nextPins} ref="throw08"/>
+                    <SelectItems currentThrow="throw08" pins={this.state.nextPins} ref="throw08"/>
                 </td>
                 <td onBlur={this.handlePinsForNextThrow}>
-                    <SelectItems currentThrow="9" pins={this.state.pins} ref="throw09"/>
+                    <SelectItems currentThrow="throw09" pins={this.state.pins} ref="throw09"/>
                 </td>
                 <td>
-                    <SelectItems currentThrow="10" pins={this.state.nextPins} ref="throw10"/>
+                    <SelectItems currentThrow="throw10" pins={this.state.nextPins} ref="throw10"/>
                 </td>
                 <td onBlur={this.handlePinsForNextThrow}>
-                    <SelectItems currentThrow="11" pins={this.state.pins} ref="throw11"/>
+                    <SelectItems currentThrow="throw11" pins={this.state.pins} ref="throw11"/>
                 </td>
                 <td>
-                    <SelectItems currentThrow="12" pins={this.state.nextPins} ref="throw12"/>
+                    <SelectItems currentThrow="throw12" pins={this.state.nextPins} ref="throw12"/>
                 </td>
                 <td onBlur={this.handlePinsForNextThrow}>
-                    <SelectItems currentThrow="13" pins={this.state.pins} ref="throw13"/>
+                    <SelectItems currentThrow="throw13" pins={this.state.pins} ref="throw13"/>
                 </td>
                 <td>
-                    <SelectItems currentThrow="14" pins={this.state.nextPins} ref="throw14"/>
+                    <SelectItems currentThrow="throw14" pins={this.state.nextPins} ref="throw14"/>
                 </td>
                 <td onBlur={this.handlePinsForNextThrow}>
-                    <SelectItems currentThrow="15" pins={this.state.pins} ref="throw15"/>
+                    <SelectItems currentThrow="throw15" pins={this.state.pins} ref="throw15"/>
                 </td>
                 <td>
-                    <SelectItems currentThrow="16" pins={this.state.nextPins} ref="throw16"/>
+                    <SelectItems currentThrow="throw16" pins={this.state.nextPins} ref="throw16"/>
                 </td>
                 <td onBlur={this.handlePinsForNextThrow}>
-                    <SelectItems currentThrow="17" pins={this.state.pins} ref="throw17"/>
+                    <SelectItems currentThrow="throw17" pins={this.state.pins} ref="throw17"/>
                 </td>
                 <td>
-                    <SelectItems currentThrow="18" pins={this.state.nextPins} ref="throw18"/>
+                    <SelectItems currentThrow="throw18" pins={this.state.nextPins} ref="throw18"/>
                 </td>
                 <td onBlur={this.handlePinsForNextThrow}>
-                    <SelectItems currentThrow="19" pins={this.state.pins} ref="throw19"/>
+                    <SelectItems currentThrow="throw19" pins={this.state.pins} ref="throw19"/>
                 </td>
                 <td onBlur={this.handlePinsForNextThrow}>
-                    <SelectItems currentThrow="20" pins={this.state.nextPins} ref="throw20"/>
+                    <SelectItems currentThrow="throw20" pins={this.state.nextPins} ref="throw20"/>
                 </td>
                 <td>
-                    <SelectItems currentThrow="21" pins={this.state.lastPins} ref="throw21"/>
+                    <SelectItems currentThrow="throw21" pins={this.state.lastPins} ref="throw21"/>
                 </td>
                 <td>
                     <input size="3" name="sum" value={this.state.value} readonly="" type="text"/>
@@ -250,34 +253,34 @@ class ScoreForFrames extends React.Component {
         return (
             <tr>
                 <td colSpan="2">
-                    <input size="3" name="fs" value={this.state.value} readonly="" type="text"/>
+                    <input size="3" name="fs1" value={this.state.value} readonly="" type="text"/>
                 </td>
                 <td colSpan="2">
-                    <input size="3" name="fs" value={this.state.value} readonly="" type="text"/>
+                    <input size="3" name="fs2" value={this.state.value} readonly="" type="text"/>
                 </td>
                 <td colSpan="2">
-                    <input size="3" name="fs" value={this.state.value} readonly="" type="text"/>
+                    <input size="3" name="fs3" value={this.state.value} readonly="" type="text"/>
                 </td>
                 <td colSpan="2">
-                    <input size="3" name="fs" value={this.state.value} readonly="" type="text"/>
+                    <input size="3" name="fs4" value={this.state.value} readonly="" type="text"/>
                 </td>
                 <td colSpan="2">
-                    <input size="3" name="fs" value={this.state.value} readonly="" type="text"/>
+                    <input size="3" name="fs5" value={this.state.value} readonly="" type="text"/>
                 </td>
                 <td colSpan="2">
-                    <input size="3" name="fs" value={this.state.value} readonly="" type="text"/>
+                    <input size="3" name="fs6" value={this.state.value} readonly="" type="text"/>
                 </td>
                 <td colSpan="2">
-                    <input size="3" name="fs" value={this.state.value} readonly="" type="text"/>
+                    <input size="3" name="fs7" value={this.state.value} readonly="" type="text"/>
                 </td>
                 <td colSpan="2">
-                    <input size="3" name="fs" value={this.state.value} readonly="" type="text"/>
+                    <input size="3" name="fs8" value={this.state.value} readonly="" type="text"/>
                 </td>
                 <td colSpan="2">
-                    <input size="3" name="fs" value={this.state.value} readonly="" type="text"/>
+                    <input size="3" name="fs9" value={this.state.value} readonly="" type="text"/>
                 </td>
                 <td colSpan="2">
-                    <input size="3" name="fs" value={this.state.value} readonly="" type="text"/>
+                    <input size="3" name="fs10" value={this.state.value} readonly="" type="text"/>
                 </td>
             </tr>
         )

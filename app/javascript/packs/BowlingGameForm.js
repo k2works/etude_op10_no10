@@ -1,28 +1,54 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import $      from 'jquery';
 import BowlingScoreTable from './BowlingScoreTable'
 
 class BowlingGameForm extends React.Component {
     constructor(props) {
-        super(props)
-        this.state = {name: this.props.name}
+        super(props);
+        this.state = {
+            scores: []
+        };
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    updateName(name) {
-        this.setState({name});
+    componentDidMount() {
+        $.ajax({
+            url: this.props.url,
+            dataType: 'json',
+            success: data => {
+                this.setState({scores: data})
+            },
+            error: (xhr, status, err) => console.error(this.props.url, status, err.toString())
+        });
+    }
+
+    handleSubmit() {
+        $.ajax({
+            url: this.props.url,
+            dataType: 'json',
+            type: 'POST',
+            success: data => {
+                this.setState({scores: data})
+            },
+            error: (xhr, status, err) => console.error(this.props.url, status, err.toString())
+        });
     }
 
     render() {
         return (
-            <BowlingScoreTable/>
+            <form onSubmit={this.handleSubmit}>
+                <BowlingScoreTable />
+                <input type="submit" value="計算する" />
+            </form>
         )
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     ReactDOM.render(
-        <BowlingGameForm name="React"/>,
-        document.body.appendChild(document.createElement('table')),
+        <BowlingGameForm name="React" url="/home/score"/>,
+        document.body.appendChild(document.createElement('form')),
     )
-})
+});
 
