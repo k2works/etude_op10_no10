@@ -4,6 +4,27 @@ class BowlingScoreTable extends React.Component {
     constructor(props) {
         super(props);
     }
+
+    componentDidMount() {
+        let scores = this._parseScores(this.props.scores);
+        this.refs.throws.refs.throw01.setState({value: this._encodeThrow(scores["throw01"])});
+        this.refs.throws.refs.throw02.setState({value: this._encodeThrow(scores["throw02"])})
+    }
+
+    _parseScores(scores) {
+        return JSON.parse(scores)["bowling_game_form"]
+    }
+
+    _encodeThrow(itsThrow) {
+        if (itsThrow === "10") {
+            return 'X'
+        } else if (itsThrow === "0") {
+            return 'G'
+        } else {
+            return itsThrow
+        }
+    }
+
     render() {
         return (
             <table>
