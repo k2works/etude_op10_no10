@@ -31,8 +31,8 @@ class Frames extends React.Component {
                 <td colSpan="2">7</td>
                 <td colSpan="2">8</td>
                 <td colSpan="2">9</td>
-                <td colSpan="2">10</td>
-                <td colSpan="2">Score</td>
+                <td colSpan="3">10</td>
+                <td>Score</td>
             </tr>
         )
     }
