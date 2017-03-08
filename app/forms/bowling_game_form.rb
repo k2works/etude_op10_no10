@@ -22,6 +22,17 @@ class BowlingGameForm
                 :throw19,
                 :throw20,
                 :throw21,
+                :fs01,
+                :fs02,
+                :fs03,
+                :fs04,
+                :fs05,
+                :fs06,
+                :fs07,
+                :fs08,
+                :fs09,
+                :fs10,
+                :score,
                 :game
 
   SCORES = { 'X': 10, '9':9, '8':8, '7':7, '6':6, '5':5, '4':4, '3':3, '2':2, '1':1, 'G':0}
@@ -77,6 +88,23 @@ class BowlingGameForm
     @game.add(throw19) unless throw19.nil?
     @game.add(throw20) unless throw20.nil?
     @game.add(throw21) unless throw21.nil?
+  end
+
+  def score_for_frames
+    @fs1 = @game.score_for_frame(1)
+    @fs2 = @game.score_for_frame(2)
+    @fs3 = @game.score_for_frame(3)
+    @fs4 = @game.score_for_frame(4)
+    @fs5 = @game.score_for_frame(5)
+    @fs6 = @game.score_for_frame(6)
+    @fs7 = @game.score_for_frame(7)
+    @fs8 = @game.score_for_frame(8)
+    @fs9 = @game.score_for_frame(9)
+    @fs10 = @game.score_for_frame(10)
+  end
+
+  def score
+    @score = @game.score
   end
 
   private

@@ -5,33 +5,13 @@ class BowlingScoreTable extends React.Component {
         super(props);
     }
 
-    componentDidMount() {
-        let scores = this._parseScores(this.props.scores);
-        this.refs.throws.refs.throw01.setState({value: this._encodeThrow(scores["throw01"])});
-        this.refs.throws.refs.throw02.setState({value: this._encodeThrow(scores["throw02"])})
-    }
-
-    _parseScores(scores) {
-        return JSON.parse(scores)["bowling_game_form"]
-    }
-
-    _encodeThrow(itsThrow) {
-        if (itsThrow === "10") {
-            return 'X'
-        } else if (itsThrow === "0") {
-            return 'G'
-        } else {
-            return itsThrow
-        }
-    }
-
     render() {
         return (
             <table>
                 <tobody>
                     <Frames/>
-                    <Throws ref="throws"/>
-                    <ScoreForFrames/>
+                    <Throws scores={this.props.scores} ref="throws"/>
+                    <ScoreForFrames  scores={this.props.scores}/>
                 </tobody>
             </table>
         )
@@ -257,7 +237,7 @@ class Throws extends React.Component {
                     <SelectItems currentThrow="throw21" pins={this.state.lastPins} ref="throw21"/>
                 </td>
                 <td>
-                    <input size="3" name="sum" value={this.state.value} readonly="" type="text"/>
+                    <input size="3" name="score" value={this.props.scores.score} readonly="" type="text"/>
                 </td>
             </tr>
         )
@@ -274,34 +254,34 @@ class ScoreForFrames extends React.Component {
         return (
             <tr>
                 <td colSpan="2">
-                    <input size="3" name="fs1" value={this.state.value} readonly="" type="text"/>
+                    <input size="3" name="fs1" value={this.props.scores.fs1} type="text"/>
                 </td>
                 <td colSpan="2">
-                    <input size="3" name="fs2" value={this.state.value} readonly="" type="text"/>
+                    <input size="3" name="fs2" value={this.props.scores.fs2} type="text"/>
                 </td>
                 <td colSpan="2">
-                    <input size="3" name="fs3" value={this.state.value} readonly="" type="text"/>
+                    <input size="3" name="fs3" value={this.props.scores.fs3} type="text"/>
                 </td>
                 <td colSpan="2">
-                    <input size="3" name="fs4" value={this.state.value} readonly="" type="text"/>
+                    <input size="3" name="fs4" value={this.props.scores.fs4} type="text"/>
                 </td>
                 <td colSpan="2">
-                    <input size="3" name="fs5" value={this.state.value} readonly="" type="text"/>
+                    <input size="3" name="fs5" value={this.props.scores.fs5} type="text"/>
                 </td>
                 <td colSpan="2">
-                    <input size="3" name="fs6" value={this.state.value} readonly="" type="text"/>
+                    <input size="3" name="fs6" value={this.props.scores.fs6} type="text"/>
                 </td>
                 <td colSpan="2">
-                    <input size="3" name="fs7" value={this.state.value} readonly="" type="text"/>
+                    <input size="3" name="fs7" value={this.props.scores.fs7} type="text"/>
                 </td>
                 <td colSpan="2">
-                    <input size="3" name="fs8" value={this.state.value} readonly="" type="text"/>
+                    <input size="3" name="fs8" value={this.props.scores.fs8} type="text"/>
                 </td>
                 <td colSpan="2">
-                    <input size="3" name="fs9" value={this.state.value} readonly="" type="text"/>
+                    <input size="3" name="fs9" value={this.props.scores.fs9} type="text"/>
                 </td>
                 <td colSpan="2">
-                    <input size="3" name="fs10" value={this.state.value} readonly="" type="text"/>
+                    <input size="3" name="fs10" value={this.props.scores.fs10} type="text"/>
                 </td>
             </tr>
         )

@@ -13,4 +13,11 @@ class BowlingGameScoreService
   def self.get_scores_for_select
     BowlingGameForm::SCORES
   end
+
+  def self.setup_calculate_form(params)
+    form = self.setup_form(params)
+    form.score_for_frames
+    form.score
+    form
+  end
 end

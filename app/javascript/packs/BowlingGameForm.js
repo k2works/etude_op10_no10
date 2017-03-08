@@ -9,7 +9,9 @@ class BowlingGameForm extends React.Component {
         this.state = {
             scores: '{"bowling_game_form":{"throw01":"","throw02":"","throw03":"","throw04":"","throw05":"","throw06":"","throw07":"","throw08":"","throw09":"","throw10":"","throw11":"","throw12":"","throw13":"","throw14":"","throw15":"","throw16":"","throw17":"","throw18":"","throw19":"","throw20":"","throw21":""}}'
         };
+        this.baseState = this.state;
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleReset = this.handleReset.bind(this);
     }
 
     handleSubmit(e) {
@@ -19,28 +21,59 @@ class BowlingGameForm extends React.Component {
         this._callAjax(data);
     }
 
+    handleReset(e) {
+        e.preventDefault();
+        let data = $.parseJSON(this.baseState.scores);
+        this._getSelectThrowRefs().throw01.setState({value: ''});
+        this._getSelectThrowRefs().throw02.setState({value: ''});
+        this._getSelectThrowRefs().throw03.setState({value: ''});
+        this._getSelectThrowRefs().throw04.setState({value: ''});
+        this._getSelectThrowRefs().throw05.setState({value: ''});
+        this._getSelectThrowRefs().throw06.setState({value: ''});
+        this._getSelectThrowRefs().throw07.setState({value: ''});
+        this._getSelectThrowRefs().throw08.setState({value: ''});
+        this._getSelectThrowRefs().throw09.setState({value: ''});
+        this._getSelectThrowRefs().throw10.setState({value: ''});
+        this._getSelectThrowRefs().throw11.setState({value: ''});
+        this._getSelectThrowRefs().throw12.setState({value: ''});
+        this._getSelectThrowRefs().throw13.setState({value: ''});
+        this._getSelectThrowRefs().throw14.setState({value: ''});
+        this._getSelectThrowRefs().throw15.setState({value: ''});
+        this._getSelectThrowRefs().throw16.setState({value: ''});
+        this._getSelectThrowRefs().throw17.setState({value: ''});
+        this._getSelectThrowRefs().throw18.setState({value: ''});
+        this._getSelectThrowRefs().throw19.setState({value: ''});
+        this._getSelectThrowRefs().throw20.setState({value: ''});
+        this._getSelectThrowRefs().throw21.setState({value: ''});
+        this._callAjax(data);
+    }
+
+    _getSelectThrowRefs() {
+        return this.refs.bowlingScoreTable.refs.throws.refs;
+    }
+
     _getScores() {
-        let throw01 = this._getThrows().throw01.state.value;
-        let throw02 = this._getThrows().throw02.state.value;
-        let throw03 = this._getThrows().throw03.state.value;
-        let throw04 = this._getThrows().throw04.state.value;
-        let throw05 = this._getThrows().throw05.state.value;
-        let throw06 = this._getThrows().throw06.state.value;
-        let throw07 = this._getThrows().throw07.state.value;
-        let throw08 = this._getThrows().throw08.state.value;
-        let throw09 = this._getThrows().throw09.state.value;
-        let throw10 = this._getThrows().throw10.state.value;
-        let throw11 = this._getThrows().throw11.state.value;
-        let throw12 = this._getThrows().throw12.state.value;
-        let throw13 = this._getThrows().throw13.state.value;
-        let throw14 = this._getThrows().throw14.state.value;
-        let throw15 = this._getThrows().throw15.state.value;
-        let throw16 = this._getThrows().throw16.state.value;
-        let throw17 = this._getThrows().throw17.state.value;
-        let throw18 = this._getThrows().throw18.state.value;
-        let throw19 = this._getThrows().throw19.state.value;
-        let throw20 = this._getThrows().throw20.state.value;
-        let throw21 = this._getThrows().throw21.state.value;
+        let throw01 = this._decodeThrow(this._getThrows().throw01.state.value);
+        let throw02 = this._decodeThrow(this._getThrows().throw02.state.value);
+        let throw03 = this._decodeThrow(this._getThrows().throw03.state.value);
+        let throw04 = this._decodeThrow(this._getThrows().throw04.state.value);
+        let throw05 = this._decodeThrow(this._getThrows().throw05.state.value);
+        let throw06 = this._decodeThrow(this._getThrows().throw06.state.value);
+        let throw07 = this._decodeThrow(this._getThrows().throw07.state.value);
+        let throw08 = this._decodeThrow(this._getThrows().throw08.state.value);
+        let throw09 = this._decodeThrow(this._getThrows().throw09.state.value);
+        let throw10 = this._decodeThrow(this._getThrows().throw10.state.value);
+        let throw11 = this._decodeThrow(this._getThrows().throw11.state.value);
+        let throw12 = this._decodeThrow(this._getThrows().throw12.state.value);
+        let throw13 = this._decodeThrow(this._getThrows().throw13.state.value);
+        let throw14 = this._decodeThrow(this._getThrows().throw14.state.value);
+        let throw15 = this._decodeThrow(this._getThrows().throw15.state.value);
+        let throw16 = this._decodeThrow(this._getThrows().throw16.state.value);
+        let throw17 = this._decodeThrow(this._getThrows().throw17.state.value);
+        let throw18 = this._decodeThrow(this._getThrows().throw18.state.value);
+        let throw19 = this._decodeThrow(this._getThrows().throw19.state.value);
+        let throw20 = this._decodeThrow(this._getThrows().throw20.state.value);
+        let throw21 = this._decodeThrow(this._getThrows().throw21.state.value);
 
         let scoresHeader = '{"bowling_game_form":';
         let scoresBody = String();
@@ -76,6 +109,16 @@ class BowlingGameForm extends React.Component {
         return this.refs.bowlingScoreTable.refs.throws.refs;
     }
 
+    _decodeThrow(itsThrow) {
+        if (itsThrow === "X") {
+            return '10'
+        } else if (itsThrow === "G") {
+            return '0'
+        } else {
+            return itsThrow
+        }
+    }
+
     _callAjax(data) {
         $.ajax({
             url: this.props.url,
@@ -92,8 +135,11 @@ class BowlingGameForm extends React.Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <BowlingScoreTable scores={this.state.scores} ref="bowlingScoreTable" />
+                <BowlingScoreTable
+                    scores={this.state.scores}
+                    ref="bowlingScoreTable" />
                 <input type="submit" value="計算する"/>
+                <a onClick={this.handleReset} href="/scores">リセット</a>
             </form>
         )
     }

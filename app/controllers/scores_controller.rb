@@ -5,7 +5,7 @@ class ScoresController < ApplicationController
   end
 
   def calculate
-    form = BowlingGameScoreService.setup_form(params)
+    form = BowlingGameScoreService.setup_calculate_form(params)
     render json:form
   end
 end
