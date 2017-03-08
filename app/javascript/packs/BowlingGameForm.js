@@ -39,7 +39,8 @@ class BowlingGameForm extends React.Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <BowlingScoreTable />
-                <input type="submit" value="計算する" />
+                <input type="submit" value="計算する" method="POST" />
+                <a href="/scores/create" onClick={this.handleSubmit}>計算する</a>
             </form>
         )
     }
@@ -47,7 +48,7 @@ class BowlingGameForm extends React.Component {
 
 document.addEventListener('DOMContentLoaded', () => {
     ReactDOM.render(
-        <BowlingGameForm name="React" url="/home/score"/>,
+        <BowlingGameForm name="React" url="/scores/score"/>,
         document.body.appendChild(document.createElement('form')),
     )
 });

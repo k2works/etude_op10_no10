@@ -10,9 +10,4 @@ class HomeController < ApplicationController
   def clear
     redirect_to :root
   end
-
-  def score
-    score = BowlingGameForm.new
-    render json:score
-  end
 end
