@@ -4,18 +4,8 @@ class ScoresController < ApplicationController
   def index
   end
 
-  def score
-    score = BowlingGameForm.new
-    score.throw01 = 1
-    score.throw02 = 2
-    score.throw03 = 3
-    score.throw04 = 4
-    score.add
-    render json:score
-  end
-
-  def create
-    score = BowlingGameForm.new
-    render json:score
+  def calculate
+    form = BowlingGameScoreService.setup_form(params)
+    render json:form
   end
 end
