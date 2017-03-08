@@ -138,8 +138,8 @@ class BowlingGameForm extends React.Component {
                 <BowlingScoreTable
                     scores={this.state.scores}
                     ref="bowlingScoreTable" />
-                <input type="submit" value="計算する"/>
-                <a onClick={this.handleReset} href="/scores">リセット</a>
+                <input type="submit" value="Calculate"/>
+                <a onClick={this.handleReset} href="/scores">Reset</a>
             </form>
         )
     }
