@@ -73,3 +73,4 @@ gem 'dotenv-rails'
 gem 'webpacker', github: 'rails/webpacker'
 gem 'guard-livereload', '~> 2.5', require: false
 gem 'rack-livereload'
+gem 'bootstrap-sass', '~> 3.3.6'
