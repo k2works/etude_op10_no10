@@ -1,36 +1,36 @@
 require 'application_system_test_case'
 
-class HomeTest < ApplicationSystemTestCase
+class ScoreTest < ApplicationSystemTestCase
   test "visiting the index" do
     visit_root_path
 
-    assert_text 'Bowling Game Scorer'
+    assert_text 'Bowling Game Scorer(ReactJS)'
   end
 
-  test "calculate throw sum when perfect game" do
+  test "calculate throw sum when perfect game for react form" do
     visit_root_path
 
-    set_all_same_throw('X') do
+    set_all_same_throw_for_react('X') do
       i.even? ? (select '', from: current_throw) : (select 'X', from: current_throw)
       select 'X', from: current_throw if i == 20
     end
 
-    click_on '計算する'
+    click_on 'Calculate'
 
-    assert has_field?('throw_sum', with: '300')
+    assert has_field?('fs10', with: '300')
   end
 
-  test "calculate throw sum when all garter" do
+  test "calculate throw sum when all garter for react form" do
     visit_root_path
 
-    set_all_same_throw('G')
+    set_all_same_throw_for_react('G')
 
-    click_on '計算する'
+    click_on 'Calculate'
 
-    assert has_field?('throw_sum', with: '0')
+    assert has_field?('fs10', with: '0')
   end
 
-  test "calculate thrwo sum when sample game" do
+  test "calculate thrwo sum when sample game for react form" do
     visit_root_path
 
     throws = [
@@ -58,18 +58,19 @@ class HomeTest < ApplicationSystemTestCase
     ]
     21.times do |i|
       i+=1
-      current_throw = get_current_throw_for_select(i)
+      current_throw = 'throw'+ format("%02d", i)
       select throws[i-1].keys[0].to_s, from: current_throw
     end
 
-    click_on '計算する'
+    click_on 'Calculate'
 
-    assert has_field?('throw_sum', with: '133')
+    assert has_field?('fs10', with: '133')
   end
+
 
   private
   def visit_root_path
-    visit root_path
+    visit scores_path
   end
 
   def set_all_same_throw(throw)

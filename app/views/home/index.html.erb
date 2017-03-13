@@ -1,12 +1,10 @@
-<h1>Bowling Game Scorer</h1>
-
-<%
-  @form = BowlingGameScoreService.create_from if @form.nil?
-  scores = BowlingGameScoreService.get_scores_for_select
-%>
-
-<%= render 'form', scores:scores %>
-
-<h1>Bowling Game Scorer(ReactJS)</h1>
-
-<%= javascript_pack_tag 'BowlingGameForm' %>
+<div class="row">
+  <h1>Bowling Game Scorer</h1>
+  <div class="col-xs-offset-1">
+    <%
+      @form = BowlingGameScoreService.create_from if @form.nil?
+      scores = BowlingGameScoreService.get_scores_for_select
+    %>
+    <%= render 'form', scores:scores %>
+  </div>
+</div>

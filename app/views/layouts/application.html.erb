@@ -8,6 +8,21 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <nva class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <%= link_to 'Bowling Game Scorer', :root, class:'navbar-brand' %>
+      </div>
+
+      <ul class="nav navbar-nav navbar-left">
+        <li><%= link_to 'Rails', :root %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-left">
+        <li><%= link_to 'ReactJS', :scores , method: 'get'%></li>
+      </ul>
+    </div>
+  </nva>
+
   <body class="container">
     <%= yield %>
   </body>
