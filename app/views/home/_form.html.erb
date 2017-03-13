@@ -1,167 +1,193 @@
 <%= form_for @form, url: :home_calculate, html: {class: 'form-horizontal'} do |f| %>
   <div class="row">
-    <div class="col-xs-1">1</div>
-    <div class="col-xs-1">2</div>
-    <div class="col-xs-1">3</div>
-    <div class="col-xs-1">4</div>
-    <div class="col-xs-1">5</div>
-    <div class="col-xs-1">6</div>
-    <div class="col-xs-1">7</div>
-    <div class="col-xs-1">8</div>
-    <div class="col-xs-1">9</div>
-    <div class="col-xs-2">10</div>
-    <div class="col-xs-1">合計</div>
+    <div class="col-xs-1"></div>
+    <div class="col-xs-2">FirstThrow</div>
+    <div class="col-xs-2">SecondThrow</div>
+    <div class="col-xs-2">ThirdThrow</div>
+    <div class="col-xs-2">ScoreForFrame</div>
   </div>
 
   <div class="row">
-    <div class="col-xs-1">
-      <div class="form-group">
-        <div class="col-xs-1">
-          <%= f.select 'throw01', options_for_select(scores, :selected => @form.throw01), {:include_blank => true}, {class:'form-control'} %>
-        </div>
-        <div class="col-xs-1">
-          <%= f.select 'throw02', options_for_select(scores, :selected => @form.throw02), {:include_blank => true}, {class:'form-control'} %>
-        </div>
+    <div class="form-group">
+      <div class="col-xs-1">
+        <%= f.label '1' %>
       </div>
-    </div>
-    <div class="col-xs-1">
-      <div class="form-group">
-        <div class="col-xs-1">
-          <%= f.select 'throw03', options_for_select(scores, :selected => @form.throw03), {:include_blank => true}, {class:'form-control'} %>
-        </div>
-        <div class="col-xs-1">
-          <%= f.select 'throw04', options_for_select(scores, :selected => @form.throw04), {:include_blank => true}, {class:'form-control'} %>
-        </div>
+      <div class="col-xs-2">
+        <%= f.select 'throw01', options_for_select(scores, :selected => @form.throw01), {:include_blank => true}, {class:'form-control'} %>
       </div>
-    </div>
-    <div class="col-xs-1">
-      <div class="form-group">
-        <div class="col-xs-1">
-          <%= f.select 'throw05', options_for_select(scores, :selected => @form.throw05), {:include_blank => true}, {class:'form-control'} %>
-        </div>
-        <div class="col-xs-1">
-          <%= f.select 'throw06', options_for_select(scores, :selected => @form.throw06), {:include_blank => true}, {class:'form-control'} %>
-        </div>
+      <div class="col-xs-2">
+        <%= f.select 'throw02', options_for_select(scores, :selected => @form.throw02), {:include_blank => true}, {class:'form-control'} %>
       </div>
-    </div>
-    <div class="col-xs-1">
-      <div class="form-group">
-        <div class="col-xs-1">
-          <%= f.select 'throw07', options_for_select(scores, :selected => @form.throw07), {:include_blank => true}, {class:'form-control'} %>
-        </div>
-        <div class="col-xs-1">
-          <%= f.select 'throw08', options_for_select(scores, :selected => @form.throw08), {:include_blank => true}, {class:'form-control'} %>
-        </div>
+      <div class="col-xs-2">
       </div>
-    </div>
-    <div class="col-xs-1">
-      <div class="form-group">
-        <div class="col-xs-1">
-          <%= f.select 'throw09', options_for_select(scores, :selected => @form.throw09), {:include_blank => true}, {class:'form-control'} %>
-        </div>
-        <div class="col-xs-1">
-          <%= f.select 'throw10', options_for_select(scores, :selected => @form.throw10), {:include_blank => true}, {class:'form-control'} %>
-        </div>
+      <div class="col-xs-2">
+        <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(1),readonly:false,class:'form-control' %>
       </div>
-    </div>
-    <div class="col-xs-1">
-      <div class="form-group">
-        <div class="col-xs-1">
-          <%= f.select 'throw11', options_for_select(scores, :selected => @form.throw11), {:include_blank => true}, {class:'form-control'} %>
-        </div>
-        <div class="col-xs-1">
-          <%= f.select 'throw12', options_for_select(scores, :selected => @form.throw12), {:include_blank => true}, {class:'form-control'} %>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-1">
-      <div class="form-group">
-        <div class="col-xs-1">
-          <%= f.select 'throw13', options_for_select(scores, :selected => @form.throw13), {:include_blank => true}, {class:'form-control'} %>
-        </div>
-        <div class="col-xs-1">
-          <%= f.select 'throw14', options_for_select(scores, :selected => @form.throw14), {:include_blank => true}, {class:'form-control'} %>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-1">
-      <div class="form-group">
-        <div class="col-xs-1">
-          <%= f.select 'throw15', options_for_select(scores, :selected => @form.throw15), {:include_blank => true}, {class:'form-control'} %>
-        </div>
-        <div class="col-xs-1">
-          <%= f.select 'throw16', options_for_select(scores, :selected => @form.throw16), {:include_blank => true}, {class:'form-control'} %>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-1">
-      <div class="form-group">
-        <div class="col-xs-1">
-          <%= f.select 'throw17', options_for_select(scores, :selected => @form.throw17), {:include_blank => true}, {class:'form-control'} %>
-        </div>
-        <div class="col-xs-1">
-          <%= f.select 'throw18', options_for_select(scores, :selected => @form.throw18), {:include_blank => true}, {class:'form-control'} %>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-2">
-      <div class="form-group">
-        <div class="col-xs-1">
-          <%= f.select 'throw19', options_for_select(scores, :selected => @form.throw19), {:include_blank => true}, {class:'form-control'} %>
-        </div>
-        <div class="col-xs-1">
-          <%= f.select 'throw20', options_for_select(scores, :selected => @form.throw20), {:include_blank => true}, {class:'form-control'} %>
-        </div>
-        <div class="col-xs-1">
-          <%= f.select 'throw21', options_for_select(scores, :selected => @form.throw21), {:include_blank => true}, {class:'form-control'} %>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-1">
-      <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score,readonly:false,class:'form-control' %>
     </div>
 
+    <div class="form-group">
+      <div class="col-xs-1">
+        <%= f.label '2' %>
+      </div>
+      <div class="col-xs-2">
+        <%= f.select 'throw03', options_for_select(scores, :selected => @form.throw03), {:include_blank => true}, {class:'form-control'} %>
+      </div>
+      <div class="col-xs-2">
+        <%= f.select 'throw04', options_for_select(scores, :selected => @form.throw04), {:include_blank => true}, {class:'form-control'} %>
+      </div>
+      <div class="col-xs-2">
+      </div>
+      <div class="col-xs-2">
+        <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(2),readonly:false,class:'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-xs-1">
+        <%= f.label '3' %>
+      </div>
+      <div class="col-xs-2">
+        <%= f.select 'throw05', options_for_select(scores, :selected => @form.throw05), {:include_blank => true}, {class:'form-control'} %>
+      </div>
+      <div class="col-xs-2">
+        <%= f.select 'throw06', options_for_select(scores, :selected => @form.throw06), {:include_blank => true}, {class:'form-control'} %>
+      </div>
+      <div class="col-xs-2">
+      </div>
+      <div class="col-xs-2">
+        <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(3),readonly:false,class:'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-xs-1">
+        <%= f.label '4' %>
+      </div>
+      <div class="col-xs-2">
+        <%= f.select 'throw07', options_for_select(scores, :selected => @form.throw07), {:include_blank => true}, {class:'form-control'} %>
+      </div>
+      <div class="col-xs-2">
+        <%= f.select 'throw08', options_for_select(scores, :selected => @form.throw08), {:include_blank => true}, {class:'form-control'} %>
+      </div>
+      <div class="col-xs-2">
+      </div>
+      <div class="col-xs-2">
+        <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(4),readonly:false,class:'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-xs-1">
+        <%= f.label '5' %>
+      </div>
+      <div class="col-xs-2">
+        <%= f.select 'throw09', options_for_select(scores, :selected => @form.throw09), {:include_blank => true}, {class:'form-control'} %>
+      </div>
+      <div class="col-xs-2">
+        <%= f.select 'throw10', options_for_select(scores, :selected => @form.throw10), {:include_blank => true}, {class:'form-control'} %>
+      </div>
+      <div class="col-xs-2">
+      </div>
+      <div class="col-xs-2">
+        <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(5),readonly:false,class:'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-xs-1">
+        <%= f.label '6' %>
+      </div>
+      <div class="col-xs-2">
+        <%= f.select 'throw11', options_for_select(scores, :selected => @form.throw11), {:include_blank => true}, {class:'form-control'} %>
+      </div>
+      <div class="col-xs-2">
+        <%= f.select 'throw12', options_for_select(scores, :selected => @form.throw12), {:include_blank => true}, {class:'form-control'} %>
+      </div>
+      <div class="col-xs-2">
+      </div>
+      <div class="col-xs-2">
+        <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(6),readonly:false,class:'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-xs-1">
+        <%= f.label '7' %>
+      </div>
+      <div class="col-xs-2">
+        <%= f.select 'throw13', options_for_select(scores, :selected => @form.throw13), {:include_blank => true}, {class:'form-control'} %>
+      </div>
+      <div class="col-xs-2">
+        <%= f.select 'throw14', options_for_select(scores, :selected => @form.throw14), {:include_blank => true}, {class:'form-control'} %>
+      </div>
+      <div class="col-xs-2">
+      </div>
+      <div class="col-xs-2">
+        <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(7),readonly:false,class:'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-xs-1">
+        <%= f.label '8' %>
+      </div>
+      <div class="col-xs-2">
+        <%= f.select 'throw15', options_for_select(scores, :selected => @form.throw15), {:include_blank => true}, {class:'form-control'} %>
+      </div>
+      <div class="col-xs-2">
+        <%= f.select 'throw16', options_for_select(scores, :selected => @form.throw16), {:include_blank => true}, {class:'form-control'} %>
+      </div>
+      <div class="col-xs-2">
+      </div>
+      <div class="col-xs-2">
+        <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(8),readonly:false,class:'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-xs-1">
+        <%= f.label '9' %>
+      </div>
+      <div class="col-xs-2">
+        <%= f.select 'throw17', options_for_select(scores, :selected => @form.throw17), {:include_blank => true}, {class:'form-control'} %>
+      </div>
+      <div class="col-xs-2">
+        <%= f.select 'throw18', options_for_select(scores, :selected => @form.throw18), {:include_blank => true}, {class:'form-control'} %>
+      </div>
+      <div class="col-xs-2">
+      </div>
+      <div class="col-xs-2">
+        <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(9),readonly:false,class:'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-xs-1">
+        <%= f.label '10' %>
+      </div>
+      <div class="col-xs-2">
+        <%= f.select 'throw19', options_for_select(scores, :selected => @form.throw19), {:include_blank => true}, {class:'form-control'} %>
+      </div>
+      <div class="col-xs-2">
+        <%= f.select 'throw20', options_for_select(scores, :selected => @form.throw20), {:include_blank => true}, {class:'form-control'} %>
+      </div>
+      <div class="col-xs-2">
+        <%= f.select 'throw21', options_for_select(scores, :selected => @form.throw21), {:include_blank => true}, {class:'form-control'} %>
+      </div>
+      <div class="col-xs-2">
+        <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(10),readonly:false,class:'form-control' %>
+      </div>
+    </div>
   </div>
 
-  <div class="row form-group">
-    <div class="col-xs-1">
-      <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(1),readonly:false,class:'form-control' %>
-    </div>
-    <div class="col-xs-1">
-      <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(2),readonly:false,class:'form-control' %>
-    </div>
-    <div class="col-xs-1">
-      <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(3),readonly:false,class:'form-control' %>
-    </div>
-    <div class="col-xs-1">
-      <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(4),readonly:false,class:'form-control' %>
-    </div>
-    <div class="col-xs-1">
-      <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(5),readonly:false,class:'form-control' %>
-    </div>
-    <div class="col-xs-1">
-      <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(6),readonly:false,class:'form-control' %>
-    </div>
-    <div class="col-xs-1">
-      <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(7),readonly:false,class:'form-control' %>
-    </div>
-    <div class="col-xs-1">
-      <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(8),readonly:false,class:'form-control' %>
-    </div>
-    <div class="col-xs-1">
-      <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(9),readonly:false,class:'form-control' %>
-    </div>
-    <div class="col-xs-1">
-      <%= text_field_tag :throw_sum, :sum, size:3,value:@form.game.score_for_frame(10),readonly:false,class:'form-control' %>
-    </div>
-  </div>
-
-  <div class="row form-group">
-    <div class="col-xs-1">
-      <%= submit_tag '計算する', class:'btn btn-primary' %>
-    </div>
-    <div class="col-xs-1">
-      <%= link_to 'リセット', :home_clear, class:'btn btn-default' %>
+  <div class="row col-xs-offset-1 text-center">
+    <div class="form-group">
+      <div class="col-xs-2">
+        <%= submit_tag '計算する', class:'btn btn-primary' %>
+      </div>
+      <div class="col-xs-2">
+        <%= link_to 'リセット', :home_clear, class:'btn btn-default' %>
+      </div>
     </div>
   </div>
 <% end %>
