@@ -1,7 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import $      from 'jquery';
-import BowlingScoreTable from './BowlingScoreTable'
+import { Grid } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import BowlingScoreComponent from './BowlingScoreComponent'
 
 class BowlingGameForm extends React.Component {
     constructor(props) {
@@ -49,7 +53,7 @@ class BowlingGameForm extends React.Component {
     }
 
     _getSelectThrowRefs() {
-        return this.refs.bowlingScoreTable.refs.throws.refs;
+        return this.refs.bowlingScoreComponent.refs.throws.refs;
     }
 
     _getScores() {
@@ -106,7 +110,7 @@ class BowlingGameForm extends React.Component {
     }
 
     _getThrows() {
-        return this.refs.bowlingScoreTable.refs.throws.refs;
+        return this.refs.bowlingScoreComponent.refs.throws.refs;
     }
 
     _decodeThrow(itsThrow) {
@@ -134,12 +138,20 @@ class BowlingGameForm extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <BowlingScoreTable
+            <form className="form-horizontal" onSubmit={this.handleSubmit}>
+                <BowlingScoreComponent
                     scores={this.state.scores}
-                    ref="bowlingScoreTable" />
-                <input type="submit" value="Calculate"/>
-                <a onClick={this.handleReset} href="/scores">Reset</a>
+                    ref="bowlingScoreComponent" />
+                <Grid className="col-xs-offset-1 text-center">
+                    <div className="form-group">
+                        <Col xs={2}>
+                            <Button onClick={this.handleSubmit} className="btn btn-primary">Calculate</Button>
+                        </Col>
+                        <Col xs={2}>
+                            <Button onClick={this.handleReset} className="btn btn-default">Reset</Button>
+                        </Col>
+                    </div>
+                </Grid>
             </form>
         )
     }
