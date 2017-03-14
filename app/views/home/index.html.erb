@@ -1,6 +1,8 @@
 <div class="row">
-  <h1>Bowling Game Scorer</h1>
-  <div class="col-xs-offset-1">
+  <div class="col-xs-12">
+    <h1 class="containerLabelL">Bowling Game Scorer</h1>
+  </div>
+  <div class="col-xs-12 l-scoreForm Form">
     <%
       @form = BowlingGameScoreService.create_from if @form.nil?
       scores = BowlingGameScoreService.get_scores_for_select
