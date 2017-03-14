@@ -23,18 +23,15 @@
 @import "./components/parts/labels";
 
 // フッター
-//@import "./components/common/footer";
+@import "./components/common/footer";
 
 // Common
 //----------------------------
 // ヘッダー
-//@import "./components/common/header";
+@import "./components/common/header";
 
 // メニュー
-//@import "./components/common/menu";
-
-// セクション分け
-//@import "./components/common/section";
+@import "./components/common/menu";
 
 // Others
 //----------------------------
@@ -52,4 +49,4 @@
 // Utils
 // ===========================
 // サイズ、余白などの便利class
-//@import "./utils/arrangements";
+@import "./utils/arrangements";

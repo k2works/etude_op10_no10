@@ -8,22 +8,31 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <nva class="navbar navbar-default" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <%= link_to 'Bowling Game Scorer', :root, class:'navbar-brand logo' %>
+  <header class="Header">
+    <nva class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <%= link_to 'Bowling Game Scorer', :root, class:'navbar-brand logo' %>
+        </div>
+
+        <ul class="nav navbar-nav navbar-left">
+          <li><%= link_to 'Rails', :root %></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-left">
+          <li><%= link_to 'ReactJS', :scores , method: 'get'%></li>
+        </ul>
       </div>
-
-      <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to 'Rails', :root %></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to 'ReactJS', :scores , method: 'get'%></li>
-      </ul>
-    </div>
-  </nva>
-
+    </nva>
+  </header>
   <body class="container l-container">
     <%= yield %>
   </body>
+
+  <footer class="Footer">
+    <div class="row">
+      <div class="col-xs-12 Footer__body">
+        <p>Powered by RoR &copy; 2017 k2works</p>
+      </div>
+    </div>
+  </footer>
 </html>
