@@ -2,6 +2,13 @@
 // レイアウトを指定する特別な要素
 // =====================
 
+.l-container {
+  padding: 10px 10px 10px 10px;
+  margin: 100px 10px 10px 10px;
+  width: auto;
+  height: auto;
+}
+
 // 2カラム構成のラッパー
 .l-content {
   display: flex;
