@@ -4,7 +4,7 @@ class ScoreTest < ApplicationSystemTestCase
   test "visiting the index" do
     visit_root_path
 
-    assert_text 'ReactJS ReactJS Implement'
+    assert_text 'ReactJS Implement'
   end
 
   test "calculate throw sum when perfect game for react form" do
