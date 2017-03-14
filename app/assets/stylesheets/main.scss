@@ -1,0 +1,55 @@
+@charset 'utf-8';
+
+// ===========================
+// Base
+// ===========================
+@import "./base/variables";
+@import "./base/mixins";
+@import "./base/reset";
+
+// ===========================
+// Components
+// ===========================
+
+// Parts
+//----------------------------
+// レイアウト
+//@import "./components/parts/layouts";
+
+// ボタン
+//@import "./components/parts/buttons";
+
+// ラベル、見出し
+//@import "./components/parts/labels";
+
+// フッター
+//@import "./components/common/footer";
+
+// Common
+//----------------------------
+// ヘッダー
+//@import "./components/common/header";
+
+// メニュー
+//@import "./components/common/menu";
+
+// セクション分け
+//@import "./components/common/section";
+
+// Others
+//----------------------------
+// フォーム
+//@import "./components/form";
+
+// ===========================
+// Pages
+// ===========================
+@import "pages/home";
+
+@import "pages/scores";
+
+// ===========================
+// Utils
+// ===========================
+// サイズ、余白などの便利class
+//@import "./utils/arrangements";
