@@ -9,21 +9,22 @@
   </head>
 
   <header class="Header">
-    <nva class="navbar navbar-default" role="navigation">
-      <div class="container">
+    <nav class="navbar Header__navbar">
+      <div class="container-fluid">
         <div class="navbar-header">
           <%= link_to 'Bowling Game Scorer', :root, class:'navbar-brand logo' %>
         </div>
 
-        <ul class="nav navbar-nav navbar-left">
-          <li><%= link_to 'Rails', :root %></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-left">
-          <li><%= link_to 'ReactJS', :scores , method: 'get'%></li>
-        </ul>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><%= link_to 'Rails', :root %></li>
+            <li><%= link_to 'ReactJS', :scores , method: 'get'%></li>
+          </ul>
+        </div>
       </div>
-    </nva>
+    </nav>
   </header>
+
   <body class="container l-container">
     <%= yield %>
   </body>
