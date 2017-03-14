@@ -46,6 +46,10 @@ const config = {
         options: {
           runner: 'DISABLE_SPRING=1 bin/rails runner'
         }
+      },
+      {
+        test: /\.css$/,
+        loaders: ['style-loader', 'css-loader?modules'],
       }
     ]
   },
