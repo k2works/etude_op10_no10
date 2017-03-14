@@ -4,7 +4,7 @@ class HomeTest < ApplicationSystemTestCase
   test "visiting the index" do
     visit_root_path
 
-    assert_text 'Bowling Game Scorer'
+    assert_text 'Rails Implement'
   end
 
   test "calculate throw sum when perfect game" do
