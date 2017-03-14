@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Grid } from 'react-bootstrap';
 import { Row } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
+import styles from './Bowling.css';
 
 class BowlingScoreTable extends React.Component {
     constructor(props) {
@@ -21,7 +22,7 @@ class BowlingScoreTable extends React.Component {
 class Frames extends React.Component {
     render() {
         return (
-            <Row>
+            <Row className={[styles.ScoreFormFrameHeaderLayout,styles.ScoreFormFrameHeader]}>
                 <Col xs={1} ></Col>
                 <Col xs={2} >FirstThrow</Col>
                 <Col xs={2} >SecondThrow</Col>
@@ -168,7 +169,7 @@ class Throws extends React.Component {
         return (
             <Row>
                 <div className="form-group">
-                    <Col xs={1}>
+                    <Col xs={1} className={styles.ScoreFormFrameLabelLayout}>
                         <label>1</label>
                     </Col>
                     <Col xs={2} onBlur={this.handlePinsForNextThrow}>
@@ -184,7 +185,7 @@ class Throws extends React.Component {
                 </div>
 
                 <div className="form-group">
-                    <Col xs={1}>
+                    <Col xs={1} className={styles.ScoreFormFrameLabelLayout}>
                         <label>2</label>
                     </Col>
                     <Col xs={2} onBlur={this.handlePinsForNextThrow}>
@@ -200,7 +201,7 @@ class Throws extends React.Component {
                 </div>
 
                 <div className="form-group">
-                    <Col xs={1}>
+                    <Col xs={1} className={styles.ScoreFormFrameLabelLayout}>
                         <label>3</label>
                     </Col>
                     <Col xs={2} onBlur={this.handlePinsForNextThrow}>
@@ -216,7 +217,7 @@ class Throws extends React.Component {
                 </div>
 
                 <div className="form-group">
-                    <Col xs={1}>
+                    <Col xs={1} className={styles.ScoreFormFrameLabelLayout}>
                         <label>4</label>
                     </Col>
                     <Col xs={2} onBlur={this.handlePinsForNextThrow}>
@@ -232,7 +233,7 @@ class Throws extends React.Component {
                 </div>
 
                 <div className="form-group">
-                    <Col xs={1}>
+                    <Col xs={1} className={styles.ScoreFormFrameLabelLayout}>
                         <label>5</label>
                     </Col>
                     <Col xs={2} onBlur={this.handlePinsForNextThrow}>
@@ -248,7 +249,7 @@ class Throws extends React.Component {
                 </div>
 
                 <div className="form-group">
-                    <Col xs={1}>
+                    <Col xs={1} className={styles.ScoreFormFrameLabelLayout}>
                         <label>6</label>
                     </Col>
                     <Col xs={2} onBlur={this.handlePinsForNextThrow}>
@@ -264,7 +265,7 @@ class Throws extends React.Component {
                 </div>
 
                 <div className="form-group">
-                    <Col xs={1}>
+                    <Col xs={1} className={styles.ScoreFormFrameLabelLayout}>
                         <label>7</label>
                     </Col>
                     <Col xs={2} onBlur={this.handlePinsForNextThrow}>
@@ -280,7 +281,7 @@ class Throws extends React.Component {
                 </div>
 
                 <div className="form-group">
-                    <Col xs={1}>
+                    <Col xs={1} className={styles.ScoreFormFrameLabelLayout}>
                         <label>8</label>
                     </Col>
                     <Col xs={2} onBlur={this.handlePinsForNextThrow}>
@@ -296,7 +297,7 @@ class Throws extends React.Component {
                 </div>
 
                 <div className="form-group">
-                    <Col xs={1}>
+                    <Col xs={1} className={styles.ScoreFormFrameLabelLayout}>
                         <label>9</label>
                     </Col>
                     <Col xs={2} onBlur={this.handlePinsForNextThrow}>
@@ -312,7 +313,7 @@ class Throws extends React.Component {
                 </div>
 
                 <div className="form-group">
-                    <Col xs={1}>
+                    <Col xs={1} className={styles.ScoreFormFrameLabelLayout}>
                         <label>10</label>
                     </Col>
                     <Col xs={2} onBlur={this.handlePinsForNextThrow}>

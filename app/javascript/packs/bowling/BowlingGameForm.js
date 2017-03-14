@@ -6,6 +6,7 @@ import { Row } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import BowlingScoreComponent from './BowlingScoreComponent'
+import styles from './Bowling.css';
 
 class BowlingGameForm extends React.Component {
     constructor(props) {
@@ -137,18 +138,19 @@ class BowlingGameForm extends React.Component {
     }
 
     render() {
+        let formCss = "form-horizontal" + ' ' + styles.Form + ' ' + styles.ScoreFormLayout;
         return (
-            <form className="form-horizontal" onSubmit={this.handleSubmit}>
+            <form className={formCss} onSubmit={this.handleSubmit}>
                 <BowlingScoreComponent
                     scores={this.state.scores}
                     ref="bowlingScoreComponent" />
                 <Grid className="col-xs-offset-1 text-center">
                     <div className="form-group">
                         <Col xs={2}>
-                            <Button onClick={this.handleSubmit} className="btn btn-primary">Calculate</Button>
+                            <Button onClick={this.handleSubmit} className={styles.Button}>Calculate</Button>
                         </Col>
                         <Col xs={2}>
-                            <Button onClick={this.handleReset} className="btn btn-default">Reset</Button>
+                            <Button onClick={this.handleReset} className={styles.ResetButton}>Reset</Button>
                         </Col>
                     </div>
                 </Grid>
