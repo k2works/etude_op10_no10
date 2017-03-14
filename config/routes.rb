@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'vue/index'
+
   get 'scores' => 'scores#index'
   post 'scores/calculate', format: 'json'
 
