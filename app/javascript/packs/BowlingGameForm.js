@@ -160,7 +160,7 @@ class BowlingGameForm extends React.Component {
 document.addEventListener('DOMContentLoaded', () => {
     ReactDOM.render(
         <BowlingGameForm name="React" url="/scores/calculate"/>,
-        document.body.appendChild(document.createElement('form')),
+        document.body.appendChild(document.getElementById('scoreForm')),
     )
 });
 
