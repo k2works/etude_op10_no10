@@ -1,0 +1,13 @@
+FROM app:base
+
+COPY . $APP_ROOT
+RUN $APP_ROOT/bin/yarn
+RUN $APP_ROOT/bin/webpack
+#RUN $APP_ROOT/bin/rake db:test:prepare
+RUN $APP_ROOT/bin/rspec
+RUN $APP_ROOT/bin/rake test
+#RUN RAILS_ENV=test $APP_ROOT/bin/rake db:setup
+RUN bundle exec yard
+
+EXPOSE  3000
+CMD ["rails", "server", "-b", "0.0.0.0"]
