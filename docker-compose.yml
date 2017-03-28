@@ -5,4 +5,11 @@ services:
     ports:
      - "3000:3000"
     volumes:
-     - .:/code
+     - .:/usr/src/app
+  doc:
+    build: .
+    command: yard server -b '0.0.0.0'
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "8808:8808"
