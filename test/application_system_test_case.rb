@@ -1,7 +1,13 @@
 require "test_helper"
 require "capybara/poltergeist"
 
-options = {js_errors: false}
+options = {js_errors: false,
+           timeout: 1000,
+           phantomjs_options: [
+               '--load-images=no',
+               '--ignore-ssl-errors=yes',
+               '--ssl-protocol=any']}
+
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, options)
 end
