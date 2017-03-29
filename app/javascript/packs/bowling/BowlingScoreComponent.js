@@ -180,7 +180,7 @@ class Throws extends React.Component {
                     </Col>
                     <Col xs={2}/>
                     <Col xs={2}>
-                        <input className="form-control" size="3" name="fs1" value={this.props.scores.fs1} type="text"/>
+                        <input className="form-control" size="3" name="fs01" value={this.props.scores.fs01} type="text"/>
                     </Col>
                 </div>
 
@@ -196,7 +196,7 @@ class Throws extends React.Component {
                     </Col>
                     <Col xs={2}/>
                     <Col xs={2}>
-                        <input className="form-control" size="3" name="fs2" value={this.props.scores.fs2} type="text"/>
+                        <input className="form-control" size="3" name="fs02" value={this.props.scores.fs02} type="text"/>
                     </Col>
                 </div>
 
@@ -212,7 +212,7 @@ class Throws extends React.Component {
                     </Col>
                     <Col xs={2}/>
                     <Col xs={2}>
-                        <input className="form-control" size="3" name="fs3" value={this.props.scores.fs3} type="text"/>
+                        <input className="form-control" size="3" name="fs03" value={this.props.scores.fs03} type="text"/>
                     </Col>
                 </div>
 
@@ -228,7 +228,7 @@ class Throws extends React.Component {
                     </Col>
                     <Col xs={2}/>
                     <Col xs={2}>
-                        <input className="form-control" size="3" name="fs4" value={this.props.scores.fs4} type="text"/>
+                        <input className="form-control" size="3" name="fs04" value={this.props.scores.fs04} type="text"/>
                     </Col>
                 </div>
 
@@ -244,7 +244,7 @@ class Throws extends React.Component {
                     </Col>
                     <Col xs={2}/>
                     <Col xs={2}>
-                        <input className="form-control" size="3" name="fs5" value={this.props.scores.fs5} type="text"/>
+                        <input className="form-control" size="3" name="fs05" value={this.props.scores.fs05} type="text"/>
                     </Col>
                 </div>
 
@@ -260,7 +260,7 @@ class Throws extends React.Component {
                     </Col>
                     <Col xs={2}/>
                     <Col xs={2}>
-                        <input className="form-control" size="3" name="fs6" value={this.props.scores.fs6} type="text"/>
+                        <input className="form-control" size="3" name="fs06" value={this.props.scores.fs06} type="text"/>
                     </Col>
                 </div>
 
@@ -276,7 +276,7 @@ class Throws extends React.Component {
                     </Col>
                     <Col xs={2}/>
                     <Col xs={2}>
-                        <input className="form-control" size="3" name="fs7" value={this.props.scores.fs7} type="text"/>
+                        <input className="form-control" size="3" name="fs07" value={this.props.scores.fs07} type="text"/>
                     </Col>
                 </div>
 
@@ -292,7 +292,7 @@ class Throws extends React.Component {
                     </Col>
                     <Col xs={2}/>
                     <Col xs={2}>
-                        <input className="form-control" size="3" name="fs8" value={this.props.scores.fs8} type="text"/>
+                        <input className="form-control" size="3" name="fs08" value={this.props.scores.fs08} type="text"/>
                     </Col>
                 </div>
 
@@ -308,7 +308,7 @@ class Throws extends React.Component {
                     </Col>
                     <Col xs={2}/>
                     <Col xs={2}>
-                        <input className="form-control" size="3" name="fs9" value={this.props.scores.fs9} type="text"/>
+                        <input className="form-control" size="3" name="fs09" value={this.props.scores.fs09} type="text"/>
                     </Col>
                 </div>
 
