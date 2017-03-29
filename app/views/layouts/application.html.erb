@@ -26,8 +26,13 @@
     </nav>
   </header>
 
+  <div class="Flash">
+    <%= content_tag(:span, flash.notice, class: 'alert alert-success') if flash.notice %>
+    <%= content_tag(:span, flash.alert, class: 'alert alert-danger') if flash.alert %>
+  </div>
+
   <body class="container l-container">
-    <%= yield %>
+  <%= yield %>
   </body>
 
   <footer class="Footer">

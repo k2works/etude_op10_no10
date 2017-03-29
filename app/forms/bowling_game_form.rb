@@ -1,39 +1,51 @@
 class BowlingGameForm
   include ActiveModel::Model
 
-  attr_accessor :throw01,
-                :throw02,
-                :throw03,
-                :throw04,
-                :throw05,
-                :throw06,
-                :throw07,
-                :throw08,
-                :throw09,
-                :throw10,
-                :throw11,
-                :throw12,
-                :throw13,
-                :throw14,
-                :throw15,
-                :throw16,
-                :throw17,
-                :throw18,
-                :throw19,
-                :throw20,
-                :throw21,
-                :fs01,
-                :fs02,
-                :fs03,
-                :fs04,
-                :fs05,
-                :fs06,
-                :fs07,
-                :fs08,
-                :fs09,
-                :fs10,
-                :score,
-                :game
+  def self.attributes
+    [
+         :throw01,
+         :throw02,
+         :throw03,
+         :throw04,
+         :throw05,
+         :throw06,
+         :throw07,
+         :throw08,
+         :throw09,
+         :throw10,
+         :throw11,
+         :throw12,
+         :throw13,
+         :throw14,
+         :throw15,
+         :throw16,
+         :throw17,
+         :throw18,
+         :throw19,
+         :throw20,
+         :throw21,
+         :fs01,
+         :fs02,
+         :fs03,
+         :fs04,
+         :fs05,
+         :fs06,
+         :fs07,
+         :fs08,
+         :fs09,
+         :fs10,
+         :score
+    ]
+  end
+
+  attr_accessor *self.attributes
+  attr_reader :game
+
+  def to_hash
+    self.class.attributes.inject({}) do |hash, key|
+      hash.merge({ key => self.send(key) })
+    end
+  end
 
   SCORES = { 'X': 10, '9':9, '8':8, '7':7, '6':6, '5':5, '4':4, '3':3, '2':2, '1':1, 'G':0}
 
@@ -42,28 +54,27 @@ class BowlingGameForm
   end
 
   def assign_attributes(params)
-    params = throw_params(params)
-    @throw01 = params[:throw01].to_i unless params[:throw01].empty?
-    @throw02 = params[:throw02].to_i unless params[:throw02].empty?
-    @throw03 = params[:throw03].to_i unless params[:throw03].empty?
-    @throw04 = params[:throw04].to_i unless params[:throw04].empty?
-    @throw05 = params[:throw05].to_i unless params[:throw05].empty?
-    @throw06 = params[:throw06].to_i unless params[:throw06].empty?
-    @throw07 = params[:throw07].to_i unless params[:throw07].empty?
-    @throw08 = params[:throw08].to_i unless params[:throw08].empty?
-    @throw09 = params[:throw09].to_i unless params[:throw09].empty?
-    @throw10 = params[:throw10].to_i unless params[:throw10].empty?
-    @throw11 = params[:throw11].to_i unless params[:throw11].empty?
-    @throw12 = params[:throw12].to_i unless params[:throw12].empty?
-    @throw13 = params[:throw13].to_i unless params[:throw13].empty?
-    @throw14 = params[:throw14].to_i unless params[:throw14].empty?
-    @throw15 = params[:throw15].to_i unless params[:throw15].empty?
-    @throw16 = params[:throw16].to_i unless params[:throw16].empty?
-    @throw17 = params[:throw17].to_i unless params[:throw17].empty?
-    @throw18 = params[:throw18].to_i unless params[:throw18].empty?
-    @throw19 = params[:throw19].to_i unless params[:throw19].empty?
-    @throw20 = params[:throw20].to_i unless params[:throw20].empty?
-    @throw21 = params[:throw21].to_i unless params[:throw21].empty?
+    @throw01 = params[:throw01].to_i unless params[:throw01].nil?
+    @throw02 = params[:throw02].to_i unless params[:throw02].nil?
+    @throw03 = params[:throw03].to_i unless params[:throw03].nil?
+    @throw04 = params[:throw04].to_i unless params[:throw04].nil?
+    @throw05 = params[:throw05].to_i unless params[:throw05].nil?
+    @throw06 = params[:throw06].to_i unless params[:throw06].nil?
+    @throw07 = params[:throw07].to_i unless params[:throw07].nil?
+    @throw08 = params[:throw08].to_i unless params[:throw08].nil?
+    @throw09 = params[:throw09].to_i unless params[:throw09].nil?
+    @throw10 = params[:throw10].to_i unless params[:throw10].nil?
+    @throw11 = params[:throw11].to_i unless params[:throw11].nil?
+    @throw12 = params[:throw12].to_i unless params[:throw12].nil?
+    @throw13 = params[:throw13].to_i unless params[:throw13].nil?
+    @throw14 = params[:throw14].to_i unless params[:throw14].nil?
+    @throw15 = params[:throw15].to_i unless params[:throw15].nil?
+    @throw16 = params[:throw16].to_i unless params[:throw16].nil?
+    @throw17 = params[:throw17].to_i unless params[:throw17].nil?
+    @throw18 = params[:throw18].to_i unless params[:throw18].nil?
+    @throw19 = params[:throw19].to_i unless params[:throw19].nil?
+    @throw20 = params[:throw20].to_i unless params[:throw20].nil?
+    @throw21 = params[:throw21].to_i unless params[:throw21].nil?
   end
 
   def add
@@ -91,46 +102,19 @@ class BowlingGameForm
   end
 
   def score_for_frames
-    @fs1 = @game.score_for_frame(1)
-    @fs2 = @game.score_for_frame(2)
-    @fs3 = @game.score_for_frame(3)
-    @fs4 = @game.score_for_frame(4)
-    @fs5 = @game.score_for_frame(5)
-    @fs6 = @game.score_for_frame(6)
-    @fs7 = @game.score_for_frame(7)
-    @fs8 = @game.score_for_frame(8)
-    @fs9 = @game.score_for_frame(9)
+    @fs01 = @game.score_for_frame(1)
+    @fs02 = @game.score_for_frame(2)
+    @fs03 = @game.score_for_frame(3)
+    @fs04 = @game.score_for_frame(4)
+    @fs05 = @game.score_for_frame(5)
+    @fs06 = @game.score_for_frame(6)
+    @fs07 = @game.score_for_frame(7)
+    @fs08 = @game.score_for_frame(8)
+    @fs09 = @game.score_for_frame(9)
     @fs10 = @game.score_for_frame(10)
   end
 
   def score
     @score = @game.score
-  end
-
-  private
-  def throw_params(params)
-    params.require(:bowling_game_form).permit(
-        :throw01,
-        :throw02,
-        :throw03,
-        :throw04,
-        :throw05,
-        :throw06,
-        :throw07,
-        :throw08,
-        :throw09,
-        :throw10,
-        :throw11,
-        :throw12,
-        :throw13,
-        :throw14,
-        :throw15,
-        :throw16,
-        :throw17,
-        :throw18,
-        :throw19,
-        :throw20,
-        :throw21
-    )
   end
 end
