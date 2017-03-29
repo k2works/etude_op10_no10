@@ -1,10 +1,19 @@
-node('master') {
-  stage 'Checkout'
-  git branch: 'wip', url: 'https://github.com/k2works/etude_op10_no10.git'
+node {
+        stage("Build") {
 
-  stage 'Build'
-  sh "docker build . -t app:base"
+            checkout scm
 
-  stage 'Run'
-  sh "docker build . -f Dockerfile-dev"
+            docker.build('app:base').inside {
+           }
+        }
+
+        stage("Test") {
+
+            docker.build('app','. -f Dockerfile-dev').inside {
+           }
+
+        }
+
+        // Clean up workspace
+        step([$class: 'WsCleanup'])
 }

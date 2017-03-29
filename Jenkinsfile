@@ -1,10 +1,16 @@
 node('master') {
-  stage 'Checkout'
-  git url: 'https://github.com/k2works/etude_op10_no10.git'
+        stage("Build") {
 
-  stage 'Build'
-  sh "docker build . -t app:base"
+            checkout scm
 
-  stage 'Run'
-  sh "docker build . -f Dockerfile-dev"
+            docker.build('app:base').inside {
+           }
+        }
+
+        stage("Test") {
+
+            docker.build('app','. -f Dockerfile-dev').inside {
+           }
+
+        }
 }
