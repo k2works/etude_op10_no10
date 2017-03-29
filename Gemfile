@@ -48,6 +48,7 @@ group :development, :test do
   gem 'debase', '~>0.2.2.beta9'    
   gem "better_errors"
   gem "binding_of_caller"
+  gem 'factory_girl_rails'
 end
 
 group :development do
