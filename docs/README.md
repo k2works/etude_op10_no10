@@ -44,6 +44,13 @@ cd /vagrant
 gem install rails -v 5.1.0.rc1
 ```
 
+### Railsアプリケーションのセットアップ
+```bash
+rails new .
+rails s -b 0.0.0.0 -p 3000
+```
+`http://0.0.0.0:3000`に接続して動作を確認する
+
 **[⬆ back to top](#構成)**
 
 ## 配置
