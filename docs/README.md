@@ -70,6 +70,24 @@ bundle exec yard server
 
 `http://0.0.0.0:8808`に接続して動作を確認する
 
+#### JavaScript環境セットアップ
+Webpackerのセットアップ
+
+```bash
+bin/rails webpacker:install
+```
+
+Reactのセットアップ
+
+```bash
+bin/rails webpacker:install:react
+```
+
+webpack-dev-serverを有効にする
+```bash
+bundle exec foreman start -f Procfile.dev
+```
+
 **[⬆ back to top](#構成)**
 
 ## 配置
