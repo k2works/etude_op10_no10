@@ -85,7 +85,13 @@ bin/rails webpacker:install:react
 
 webpack-dev-serverを有効にする
 ```bash
+bundle install
+bin/webpack
 bundle exec foreman start -f Procfile.dev
+```
+または
+```bash
+./bin/server
 ```
 
 **[⬆ back to top](#構成)**
