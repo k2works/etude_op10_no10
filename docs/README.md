@@ -36,6 +36,14 @@ cd /container
 
 上記の作業ディレクトリで以下の作業を実施する
 
+### Railsのインストール
+```bash
+vagrant up
+vagrant ssh
+cd /vagrant
+gem install rails -v 5.1.0.rc1
+```
+
 **[⬆ back to top](#構成)**
 
 ## 配置
