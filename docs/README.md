@@ -137,6 +137,15 @@ Crumb Dataが必要な場合は`http://0.0.0.0:9000/crumbIssuer/api/json`からc
 **[⬆ back to top](#構成)**
 
 ## 開発
+### 仕様
+ユースケース
+
+![](./images/use_case.png)
+
+概念モデル
+
+![](./images/conceptual_model.png)
+
 **[⬆ back to top](#構成)**
 
 # 参照 #
