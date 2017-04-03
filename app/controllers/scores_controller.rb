@@ -9,6 +9,27 @@ class ScoresController < ApplicationController
     render json:form
   end
 
+  def save
+    if BowlingGameScoreService.save_form(throw_params)
+      flash.notice = 'スコアを保存しました'
+      form = BowlingGameScoreService.search_form
+      render json:form
+    else
+      flash.alert = 'スコアを保存できませんでした'
+    end
+  end
+
+  def search
+    form = BowlingGameScoreService.search_form
+    render json:form
+  end
+
+  def destroy
+    Score.destroy_all
+    form = BowlingGameScoreService.setup_calculate_form(throw_params)
+    render json:form
+  end
+
   private
   def throw_params
     params.require(:bowling_game_form).permit(

@@ -20,6 +20,7 @@ class HomeController < ApplicationController
 
   def clear
     Score.destroy_all
+    flash.notice = 'スコアをリセットしました'
     redirect_to :root
   end
 

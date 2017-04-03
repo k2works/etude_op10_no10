@@ -12,6 +12,7 @@ class BowlingGameForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            url: "/scores/search",
             scores: '{"bowling_game_form":{"throw01":"","throw02":"","throw03":"","throw04":"","throw05":"","throw06":"","throw07":"","throw08":"","throw09":"","throw10":"","throw11":"","throw12":"","throw13":"","throw14":"","throw15":"","throw16":"","throw17":"","throw18":"","throw19":"","throw20":"","throw21":""}}'
         };
         this.baseState = this.state;
@@ -19,7 +20,20 @@ class BowlingGameForm extends React.Component {
         this.handleReset = this.handleReset.bind(this);
     }
 
+    componentDidMount() {
+        let scores = this._getScores();
+        let data = $.parseJSON(scores);
+        this._callAjax(data);
+    }
+
     handleSubmit(e) {
+        if (e.target.name === 'save') {
+            this.state.url = "/scores/save"
+        } else if (e.target.name === 'calc') {
+            this.state.url = "/scores/calculate"
+        } else {
+            this.state.url = "/scores/search"
+        }
         e.preventDefault();
         let scores = this._getScores();
         let data = $.parseJSON(scores);
@@ -27,6 +41,7 @@ class BowlingGameForm extends React.Component {
     }
 
     handleReset(e) {
+        this.state.url = "/scores/destroy"
         e.preventDefault();
         let data = $.parseJSON(this.baseState.scores);
         this._getSelectThrowRefs().throw01.setState({value: ''});
@@ -124,14 +139,50 @@ class BowlingGameForm extends React.Component {
         }
     }
 
+    _encodeThrow(itsThrow) {
+        if (itsThrow === 10) {
+            return 'X'
+        } else if (itsThrow === 0) {
+            return 'G'
+        } else {
+            return itsThrow
+        }
+    }
+
+    _setThrowForSelect() {
+        this._getSelectThrowRefs().throw01.setState({value: this._encodeThrow(this.state.scores.throw01)});
+        this._getSelectThrowRefs().throw02.setState({value: this._encodeThrow(this.state.scores.throw02)});
+        this._getSelectThrowRefs().throw03.setState({value: this._encodeThrow(this.state.scores.throw03)});
+        this._getSelectThrowRefs().throw04.setState({value: this._encodeThrow(this.state.scores.throw04)});
+        this._getSelectThrowRefs().throw05.setState({value: this._encodeThrow(this.state.scores.throw05)});
+        this._getSelectThrowRefs().throw06.setState({value: this._encodeThrow(this.state.scores.throw06)});
+        this._getSelectThrowRefs().throw07.setState({value: this._encodeThrow(this.state.scores.throw07)});
+        this._getSelectThrowRefs().throw08.setState({value: this._encodeThrow(this.state.scores.throw08)});
+        this._getSelectThrowRefs().throw09.setState({value: this._encodeThrow(this.state.scores.throw09)});
+        this._getSelectThrowRefs().throw10.setState({value: this._encodeThrow(this.state.scores.throw10)});
+        this._getSelectThrowRefs().throw11.setState({value: this._encodeThrow(this.state.scores.throw11)});
+        this._getSelectThrowRefs().throw12.setState({value: this._encodeThrow(this.state.scores.throw12)});
+        this._getSelectThrowRefs().throw13.setState({value: this._encodeThrow(this.state.scores.throw13)});
+        this._getSelectThrowRefs().throw14.setState({value: this._encodeThrow(this.state.scores.throw14)});
+        this._getSelectThrowRefs().throw15.setState({value: this._encodeThrow(this.state.scores.throw15)});
+        this._getSelectThrowRefs().throw16.setState({value: this._encodeThrow(this.state.scores.throw16)});
+        this._getSelectThrowRefs().throw17.setState({value: this._encodeThrow(this.state.scores.throw17)});
+        this._getSelectThrowRefs().throw18.setState({value: this._encodeThrow(this.state.scores.throw18)});
+        this._getSelectThrowRefs().throw19.setState({value: this._encodeThrow(this.state.scores.throw19)});
+        this._getSelectThrowRefs().throw20.setState({value: this._encodeThrow(this.state.scores.throw20)});
+        this._getSelectThrowRefs().throw21.setState({value: this._encodeThrow(this.state.scores.throw21)});
+    }
+
     _callAjax(data) {
         $.ajax({
-            url: this.props.url,
+            url: this.state.url,
             dataType: 'json',
             type: 'POST',
             data: data,
             success: data => {
-                this.setState({scores: data})
+                this.setState({scores: data});
+                console.log(this.state.scores);
+                this._setThrowForSelect();
             },
             error: (xhr, status, err) => console.error(this.props.url, status, err.toString())
         });
@@ -147,7 +198,10 @@ class BowlingGameForm extends React.Component {
                 <Grid className="col-xs-offset-1 text-center">
                     <div className="form-group">
                         <Col xs={2}>
-                            <Button onClick={this.handleSubmit} className={styles.Button}>Calculate</Button>
+                            <Button onClick={this.handleSubmit} className={styles.Button} name="calc">Calculate</Button>
+                        </Col>
+                        <Col xs={2}>
+                            <Button onClick={this.handleSubmit} className={styles.Button} name="save">Save</Button>
                         </Col>
                         <Col xs={2}>
                             <Button onClick={this.handleReset} className={styles.ResetButton}>Reset</Button>
@@ -160,6 +214,6 @@ class BowlingGameForm extends React.Component {
 }
 
 ReactDOM.render(
-    <BowlingGameForm name="React" url="/scores/calculate"/>,
+    <BowlingGameForm name="React"/>,
     document.body.appendChild(document.createElement('scoreForm')),
 );
