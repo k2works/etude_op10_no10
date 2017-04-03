@@ -16,6 +16,12 @@ cd /vagrant
 docker build . -t app:base
 docker run --name app --rm -p 5000:5000 -p 9292:9292 -v $(PWD):/container -i -t app:base /bin/bash
 cd /container
+./bin/server
+```
+or
+```bash
+docker-compose build
+docker-compose up
 ```
 
 ### Documents

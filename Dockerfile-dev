@@ -27,4 +27,4 @@ RUN $APP_ROOT/bin/rake test
 RUN bundle exec yard
 
 EXPOSE  3000
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["bin/server"]

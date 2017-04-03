@@ -9,6 +9,6 @@ services:
       dockerfile: Dockerfile-dev
     ports:
      - "5000:5000"
-     - "8080:8080"
+     - "9292:9292"
     volumes:
      - .:/usr/src/app
