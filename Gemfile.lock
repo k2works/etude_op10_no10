@@ -154,6 +154,7 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    pg (0.20.0)
     poltergeist (1.14.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -188,6 +189,11 @@ GEM
       nokogiri (~> 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.5)
+    rails_stdout_logging (0.0.5)
     railties (5.1.0.rc1)
       actionpack (= 5.1.0.rc1)
       activesupport (= 5.1.0.rc1)
@@ -284,11 +290,13 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   migration_comments
+  pg
   poltergeist
   puma (~> 3.7)
   rack-dev-mark
   rack-livereload
   rails (~> 5.1.0.rc1)
+  rails_12factor
   redcarpet (~> 3.3, >= 3.3.4)
   rspec-rails (~> 3.5)
   ruby-debug-ide (~> 0.6.1.beta4)
