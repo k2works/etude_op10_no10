@@ -30,7 +30,21 @@ class BowlingGameScoreService
   def self.search_form
     score = Score.all.last
     unless score.nil?
-      self.setup_calculate_form(score)
+      self.setup_calculate_form_for_search(score)
     end
+  end
+
+  def self.setup_calculate_form_for_search(score)
+    form = self.setup_form_for_search(score)
+    form.score_for_frames
+    form.score
+    form
+  end
+
+  def self.setup_form_for_search(params)
+    form = BowlingGameForm.new
+    form.assign_attributes_for_search(params)
+    form.add
+    form
   end
 end
