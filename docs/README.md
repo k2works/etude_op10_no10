@@ -61,6 +61,14 @@ bundle binstubs rspec-core
 ./bin/rspec
 ```
 
+#### ドキュメント環境セットアップ
+```bash
+bundle exec rails g annotate:install
+bundle exec yard
+bundle exec yard server
+```
+
+`http://0.0.0.0:8808`に接続して動作を確認する
 
 **[⬆ back to top](#構成)**
 
