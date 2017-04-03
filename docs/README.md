@@ -126,6 +126,14 @@ $ heroku run rake db:migrate
 $ heroku open
 ```
 
+### Jenkinsセットアップ(仮想マシン利用時)
+```
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+`http://0.0.0.0:9000`に接続してJenkinsをセットアップする
+
+Crumb Dataが必要な場合は`http://0.0.0.0:9000/crumbIssuer/api/json`からcrumbを取得する
+
 **[⬆ back to top](#構成)**
 
 ## 開発
