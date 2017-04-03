@@ -23,12 +23,14 @@ class BowlingGameScoreService
 
   def self.save_form(params)
     form = self.setup_calculate_form(params)
+    repo = ScoresRepo.new
     score = Score.new(form.to_hash)
-    score.save!
+    repo.save(score)
   end
 
   def self.search_form
-    score = Score.all.last
+    repo = ScoresRepo.new
+    score = repo.all.last
     unless score.nil?
       self.setup_calculate_form_for_search(score)
     end
