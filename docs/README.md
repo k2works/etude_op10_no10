@@ -53,6 +53,15 @@ rails s -b 0.0.0.0 -p 3000
 
 ### アプリケーションコンポーネントのセットアップ
 
+#### テスト環境セットアップ
+```bash
+bundle install
+rails generate rspec:install
+bundle binstubs rspec-core
+./bin/rspec
+```
+
+
 **[⬆ back to top](#構成)**
 
 ## 配置
