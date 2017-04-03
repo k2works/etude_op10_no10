@@ -1,8 +1,14 @@
 version: '2'
 services:
-  app:
+  base:
     build: .
+    image: app:base
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile-dev
     ports:
-     - "3000:3000"
+     - "5000:5000"
+     - "8080:8080"
     volumes:
-     - .:/code
+     - .:/usr/src/app
