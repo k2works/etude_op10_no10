@@ -98,6 +98,11 @@ bundle exec foreman start -f Procfile.dev
 ./bin/server
 ```
 
+React-Bootstrapのセットアップ
+```bash
+./bin/yarn add react-bootstrap
+```
+
 **[⬆ back to top](#構成)**
 
 ## 配置
