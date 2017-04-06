@@ -155,7 +155,6 @@ Crumb Dataが必要な場合は`http://0.0.0.0:9000/crumbIssuer/api/json`からc
 
 ![](./images/use_case.png)
 
-
 スコアカード
 ![](./images/score.png)
 
