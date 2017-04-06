@@ -103,6 +103,19 @@ React-Bootstrapのセットアップ
 ./bin/yarn add react-bootstrap
 ```
 
+#### JavaScriptテスト環境のセットアップ
+```bash
+npm install -g quik
+npm install -g mocha
+npm install --save-dev chai sinon enzyme jsdom mocha quik react-addons-test-utils babel-cli
+```
+
+Mochaの動作のテスト
+```bash
+npm test
+npm run test:watch
+```
+
 **[⬆ back to top](#構成)**
 
 ## 配置
@@ -141,6 +154,9 @@ Crumb Dataが必要な場合は`http://0.0.0.0:9000/crumbIssuer/api/json`からc
 ユースケース
 
 ![](./images/use_case.png)
+
+スコアカード
+![](./images/score.png)
 
 概念モデル
 
