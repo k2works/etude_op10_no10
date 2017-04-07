@@ -5,13 +5,6 @@ describe Bowling::Game do
   let(:g) { Game.new }
 
   describe '#score' do
-    context 'when one throw' do
-      it 'is scored' do
-        g.add(5)
-        expect(g.score).to eq(5)
-      end
-    end
-
     context 'when two throws' do
       it 'is scored' do
         g.add(5)
@@ -21,7 +14,13 @@ describe Bowling::Game do
     end
 
     context 'when spare' do
-      it 'is scored'
+      it 'is scored' do
+        g.add(3)
+        g.add(7)
+        g.add(3)
+        g.add(2)
+        expect(g.score).to eq(18)
+      end
     end        
   end
 
@@ -47,5 +46,39 @@ describe Bowling::Game do
         expect(g.score_for_frame(2)).to eq(18)
       end
     end    
+  end
+
+  describe '#get_current_frame' do
+    context 'when one throw' do
+      it 'current frame is' do
+        g.add(5)
+        expect(g.get_current_frame).to eq(1)
+      end
+    end
+
+    context 'when two throws' do
+      it 'current frame is' do
+        g.add(5)
+        g.add(4)
+        expect(g.get_current_frame).to eq(2)
+      end
+    end
+
+    context 'when spare' do
+      it 'current frame is' do
+        g.add(3)
+        g.add(7)
+        g.add(3)
+        expect(g.get_current_frame).to eq(2)
+      end
+
+      it 'current frame is' do
+        g.add(3)
+        g.add(7)
+        g.add(3)
+        g.add(2)
+        expect(g.get_current_frame).to eq(3)
+      end
+    end
   end
 end
