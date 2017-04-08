@@ -21,7 +21,16 @@ describe Bowling::Game do
         g.add(2)
         expect(g.score).to eq(18)
       end
-    end        
+    end
+
+    context 'when strike' do
+      it 'is scored' do
+        g.add(10)
+        g.add(3)
+        g.add(6)
+        expect(g.score).to eq(28)
+      end
+    end
   end
 
   describe '#score_for_frame' do
@@ -45,7 +54,16 @@ describe Bowling::Game do
         expect(g.score_for_frame(1)).to eq(13)
         expect(g.score_for_frame(2)).to eq(18)
       end
-    end    
+    end
+
+    context 'when strike' do
+      it 'is scored' do
+        g.add(10)
+        g.add(3)
+        g.add(6)
+        expect(g.score_for_frame(1)).to eq(19)
+      end
+    end
   end
 
   describe '#get_current_frame' do
