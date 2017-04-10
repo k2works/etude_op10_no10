@@ -65,6 +65,7 @@ module Bowling
         @its_current_frame += 1
         @first_throw = true
       end
+      @its_current_frame = [11, @its_current_frame].min
     end
   end
 end
