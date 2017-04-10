@@ -29,7 +29,7 @@ module Bowling
         ball += 1
 
         if first_throw == 10
-          score += 10 + @its_throws[ball] + + @its_throws[ball+1]
+          score += 10 + @its_throws[ball] + @its_throws[ball+1]
         else
           second_throw =  @its_throws[ball]
           ball += 1
