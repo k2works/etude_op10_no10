@@ -27,9 +27,9 @@ module Bowling
       while current_frame < the_frame
         @first_throw = @its_throws[@ball]
 
-        if @first_throw == 10
+        if strike
           @ball += 1
-          score += 10 + @its_throws[@ball] + @its_throws[@ball+1]
+          score += 10 + next_two_balls
         else
           score += handle_second_throw
         end
@@ -44,6 +44,14 @@ module Bowling
     end
 
     private
+    def strike
+      @first_throw == 10
+    end
+
+    def next_two_balls
+      @its_throws[@ball] + @its_throws[@ball+1]
+    end
+
     def handle_second_throw
       score = 0
       second_throw = @its_throws[@ball+1]
