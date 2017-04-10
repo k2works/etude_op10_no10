@@ -55,7 +55,6 @@ module Bowling
     def handle_second_throw
       score = 0
       second_throw = @its_throws[@ball+1]
-
       frame_score = @first_throw + second_throw
 
       # スペアの得点計算には次のフレームの第１投が必要
@@ -63,8 +62,8 @@ module Bowling
         @ball += 2
         score += frame_score + next_ball
       else
+        score += two_balls_in_frame
         @ball += 2
-        score += frame_score
       end
       score
     end
@@ -75,6 +74,10 @@ module Bowling
 
     def next_ball
       @its_throws[@ball]
+    end
+
+    def two_balls_in_frame
+      @its_throws[@ball] + @its_throws[@ball+1]
     end
 
     def adjust_current_frame(pins)
