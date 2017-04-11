@@ -16,54 +16,16 @@ module Bowling
     end
 
     def add(pins)
-      @its_throws[@its_current_throw] = pins
-      @its_current_throw += 1
+      @its_scorer.add_throw(pins)
       @its_score += pins
-
       adjust_current_frame(pins)
     end
 
     def score_for_frame(the_frame)
-      score = 0
-      @ball = 0
-      current_frame = 0
-      while current_frame < the_frame
-        if strike
-          score += 10 + next_two_balls_for_strike
-          @ball += 1
-        elsif spare
-          score += 10 + next_ball_for_spare
-          @ball += 2
-        else
-          score += two_balls_in_frame
-          @ball += 2
-        end
-        current_frame += 1
-      end
-      score
+      @its_scorer.score_for_frame(the_frame)
     end
 
     private
-    def strike
-      @its_throws[@ball] == 10
-    end
-
-    def next_two_balls_for_strike
-      @its_throws[@ball+1] + @its_throws[@ball+2]
-    end
-
-    def spare
-      (@its_throws[@ball] + @its_throws[@ball+1] == 10)
-    end
-
-    def next_ball_for_spare
-      @its_throws[@ball+2]
-    end
-
-    def two_balls_in_frame
-      @its_throws[@ball] + @its_throws[@ball+1]
-    end
-
     def adjust_current_frame(pins)
       if @first_throw
         if pins == 10 # ストライク
