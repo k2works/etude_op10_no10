@@ -12,6 +12,10 @@ module Bowling
       score_for_frame(get_current_frame-1)
     end
 
+    def get_current_frame
+      @its_current_frame
+    end
+
     def add(pins)
       @its_throws[@its_current_throw] = pins
       @its_current_throw += 1
@@ -38,10 +42,6 @@ module Bowling
         current_frame += 1
       end
       score
-    end
-
-    def get_current_frame
-      @its_current_frame
     end
 
     private
