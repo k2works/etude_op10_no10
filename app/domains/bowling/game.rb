@@ -28,15 +28,6 @@ module Bowling
       end
     end
 
-    def adjust_frame_for_strike(pins)
-      if pins == 10
-        advance_frame
-        true
-      else
-        false
-      end
-    end
-
     def advance_frame
       @its_current_frame = [10, @its_current_frame+1].min
     end
