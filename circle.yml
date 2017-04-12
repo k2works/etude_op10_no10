@@ -17,7 +17,7 @@ test:
   override:
     - bin/rspec
     - bin/rails test
-    - nmp test
+    - npm test
     - bin/rails test:system
 
 deployment:
