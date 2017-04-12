@@ -150,17 +150,12 @@ Crumb Dataが必要な場合は`http://0.0.0.0:9000/crumbIssuer/api/json`からc
 **[⬆ back to top](#構成)**
 
 ## 開発
-### 仕様
-ユースケース
 
-![](./images/use_case.png)
+### [ボーリングゲーム](dev/bowling.md)
 
-スコアカード
-![](./images/score.png)
+### [ビールリスト](dev/beer_list.md)
 
-概念モデル
-
-![](./images/conceptual_model.png)
+### [ビデオレンタル](dev/video_rental.md)
 
 **[⬆ back to top](#構成)**
 
