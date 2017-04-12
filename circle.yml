@@ -13,6 +13,12 @@ test:
   pre:
     - bin/yarn
     - bin/webpack
+    - bin/rails assets:precompile
+  override:
+    - bin/rspec
+    - bin/rails test
+    - nmp test
+    - bin/rails test:system
 
 deployment:
   staging:
