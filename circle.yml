@@ -16,6 +16,10 @@ test:
 
 deployment:
   staging:
+    branch: development
+    heroku:
+      appname: op10-no10
+  production:
     branch: master
     heroku:
       appname: op10-no10
