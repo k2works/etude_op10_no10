@@ -77,5 +77,11 @@ describe('BeerList', () => {
         const items = ['Sam Adams', 'Resin', 'Octoberfest'];
         const wrapper = shallow(<BeerList items={items}/>);
         expect(wrapper.find('li')).to.have.length(3);
-    })
+    });
+    it('renders the items', () => {
+        const wrapper = mount(<BeerListContainer/>);
+        wrapper.instance().addItem('Same Adams');
+        wrapper.instance().addItem('Resin');
+        expect(wrapper.find('li').length).to.equal(2);
+    });
 });
