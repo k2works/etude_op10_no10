@@ -63,3 +63,10 @@ describe('InputArea', () => {
         expect(addItemSpy.calledWith('Octoberfest')).to.equal(true);
     });
 });
+
+describe('BeerList', () => {
+    it('should render zero itmes',() => {
+        const wrapper = shallow(<BeerList items={[]}/>);
+        expect(wrapper.find('li')).to.have.length(0);
+    });
+});
