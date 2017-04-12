@@ -1,8 +1,9 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow, mount } from 'enzyme';
-import { BeerListContainer } from '../../app/javascript/packs/components';
-import { InputArea,BeerList } from '../../app/javascript/packs/components';
+import { BeerListContainer } from '../../app/javascript/packs/beer_list_components/beer_list_container';
+import { InputArea } from '../../app/javascript/packs/beer_list_components/input_area';
+import { BeerList } from '../../app/javascript/packs/beer_list_components/beer_list';
 import { spy } from 'sinon';
 
 describe('BeerListContainer', () => {
