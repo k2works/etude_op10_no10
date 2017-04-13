@@ -16,6 +16,7 @@
 ### ユースケース２：レンタル料金を計算する
 
 ### ユースケース３：計算書を印刷する
+![](./images/video_rental/use_case_03.png)
 
 ## コアモデル
 ![](./images/video_rental/core_model.png)

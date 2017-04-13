@@ -1,0 +1,14 @@
+@startuml
+actor Customer
+
+Customer -> a_customer: statement
+    activate a_customer
+      a_customer -> a_customer: *[for all rentals]
+      activate a_customer
+        a_customer -> a_rental:get_movie
+        a_customer -> a_movie:get_price_code
+        a_customer -> a_rental:get_days_rented
+      deactivate a_customer
+    deactivate a_customer
+
+@enduml
