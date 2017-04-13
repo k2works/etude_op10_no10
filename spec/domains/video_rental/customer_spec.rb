@@ -150,4 +150,12 @@ describe VideoRental::Customer do
       end
     end
   end
+
+  describe '#html_statement' do
+    it 'print html format statement' do
+      days_rented = 7
+      customer.add_rental(rental_movie(days_rented, VideoRental::Movie::REGULAR))
+      expect(customer.html_statement).to be_match '<h1>Rental Record for <em>Taro</em></h1><p>\n\tAttack of the Killer Tomatoes!\t9.5<br>\n<p>You owed is <em>9.5</em><p>\nOn this rental you earned <em>1</em> frequent renter points<p>'
+    end
+  end
 end
