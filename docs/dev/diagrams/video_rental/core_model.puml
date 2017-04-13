@@ -5,7 +5,7 @@ Rental "*"<-l- "1"Customer
 Movie "*"-r->"1"Price
 Price <|-d- ChildrenPrice
 Price <|-d- RegularPrice
-NewReleaseMovie -r- RegularPrice
+Price <|-d- NewReleasePrice
 DefaultPrice <|-u- RegularPrice
 DefaultPrice <|-u- ChildrenPrice
 
@@ -33,7 +33,7 @@ interface Price<<protocol>> {
 charge(days_rented)
 }
 
-class NewReleaseMovie {
+class NewReleasePrice {
 charge(days_rented)
 frequent_renter_points(days_rented)
 }
