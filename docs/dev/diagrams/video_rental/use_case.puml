@@ -5,6 +5,6 @@ actor customer
 rectangle VedioRental {
   customer -- (レンタルする)
               (レンタル料金を計算する)
-  customer -- (計算書を印刷する)
+              (計算書を印刷する)
 }
 @enduml
