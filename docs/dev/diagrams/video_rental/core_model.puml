@@ -1,0 +1,18 @@
+@startuml
+
+Movie "1"<-"*" Rental
+Rental "*"<- "1"Customer
+
+class Movie {
+price_code
+}
+
+class Rental {
+days_rented
+}
+
+class Customer {
+statement()
+}
+
+@enduml

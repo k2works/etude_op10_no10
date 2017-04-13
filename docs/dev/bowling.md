@@ -2,11 +2,11 @@
 ---
 
 ## 基本仕様
-![](../images/score.png)
+![](./images/bowling/score.png)
 
 ## ユースケース
-![](../images/use_case.png)
+![](./images/bowling/use_case.png)
 
 ## コアモデル
-![](../images/conceptual_model.png)
+![](./images/bowling/conceptual_model.png)
 
