@@ -42,7 +42,7 @@
     "webpack-dev-server": "^2.4.2"
   },
   "scripts": {
-    "test": "mocha --require ./test/javascript/setup.js ./test/javascript/*",
+    "test": "mocha --require ./spec/javascript/setup.js ./spec/javascript/*",
     "test:watch": "npm run test -- --watch"
   }
 }
