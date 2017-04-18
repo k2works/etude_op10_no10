@@ -1,4 +1,5 @@
 require('babel-register')();
+require('./css-modules-compiler');
 
 var jsdom = require('jsdom').jsdom;
 

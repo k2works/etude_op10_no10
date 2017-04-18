@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
+import {BowlingGameTable} from './bowling_game_table'
 
 export class BowlingGameScoreContainer extends Component {
     render() {
@@ -7,20 +8,6 @@ export class BowlingGameScoreContainer extends Component {
             <div>
                 <BowlingGameTable/>
             </div>
-        )
-    }
-}
-
-export class BowlingGameTable extends Component {
-    render() {
-        return (
-            <table>
-                <tbody>
-                <tr>
-                    <td></td>
-                </tr>
-                </tbody>
-            </table>
         )
     }
 }
